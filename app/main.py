@@ -12,6 +12,11 @@ app = FastAPI(title="DevOps Learning App")
 # Setup templates
 templates = Jinja2Templates(directory="templates")
 
+# Include Routers
+from routers import bible, terraform
+app.include_router(bible.router)
+app.include_router(terraform.router)
+
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "message": "Welcome to the DevOps Learning Platform"})

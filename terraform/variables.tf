@@ -1,5 +1,5 @@
-variable "container_image" {
-  description = "The docker image to deploy"
+variable "environment_name" {
+  description = "Name of the environment"
   type        = string
-  default     = "devops-learning-app:latest"
+  default     = "development"
 }

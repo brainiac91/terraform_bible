@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .glass {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -15,55 +19,167 @@
         }
     </style>
 </head>
+
 <body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white flex flex-col">
 
     <nav class="p-6 glass sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">DevOps Master</h1>
+            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
+                DevOps Master</h1>
             <div class="space-x-4">
                 <a href="#" class="hover:text-blue-300 transition">Home</a>
-                <a href="#" class="hover:text-blue-300 transition">Metrics</a>
-                <a href="#" class="hover:text-blue-300 transition">Docs</a>
-            </div>
-        </div>
-    </nav>
+                <!DOCTYPE html>
+                <!DOCTYPE html>
+                <html lang="en">
 
-    <main class="flex-grow container mx-auto px-4 py-12 flex flex-col items-center justify-center text-center">
-        <div class="glass p-12 rounded-2xl shadow-2xl max-w-3xl w-full transform hover:scale-105 transition duration-500">
-            <h2 class="text-5xl font-bold mb-6">{{ message }}</h2>
-            <p class="text-xl text-gray-300 mb-8">
-                This application is running on a fully automated DevOps pipeline.
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                    <div class="text-blue-400 text-2xl mb-2">🐳</div>
-                    <h3 class="font-bold text-lg">Dockerized</h3>
-                    <p class="text-sm text-gray-400">Containerized for consistency across environments.</p>
-                </div>
-                <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                    <div class="text-purple-400 text-2xl mb-2">☸️</div>
-                    <h3 class="font-bold text-lg">Kubernetes</h3>
-                    <p class="text-sm text-gray-400">Orchestrated for high availability and scaling.</p>
-                </div>
-                <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                    <div class="text-emerald-400 text-2xl mb-2">🏗️</div>
-                    <h3 class="font-bold text-lg">Terraform</h3>
-                    <p class="text-sm text-gray-400">Infrastructure defined as code.</p>
-                </div>
-            </div>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>DevOps Learning App</title>
+                    <script src="https://cdn.tailwindcss.com"></script>
+                    <script>
+                        tailwind.config = {
+                            darkMode: 'class',
+                        }
+                    </script>
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+                        rel="stylesheet">
+                    <style>
+                        body {
+                            font-family: 'Inter', sans-serif;
+                            transition: background-color 0.3s, color 0.3s;
+                        }
 
-            <div class="mt-10">
-                <button class="bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-3 rounded-full font-bold hover:shadow-lg hover:shadow-blue-500/30 transition transform hover:-translate-y-1">
-                    View System Status
-                </button>
-            </div>
-        </div>
-    </main>
+                        .glass {
+                            background: rgba(255, 255, 255, 0.7);
+                            backdrop-filter: blur(10px);
+                            border: 1px solid rgba(255, 255, 255, 0.5);
+                        }
 
-    <footer class="p-6 text-center text-gray-500 text-sm">
-        <p>&copy; 2025 DevOps Learning Project. Built with FastAPI & Tailwind.</p>
-    </footer>
+                        .dark .glass {
+                            background: rgba(255, 255, 255, 0.1);
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                        }
+                    </style>
+                </head>
 
-</body>
-</html>
+                <body
+                    class="bg-gradient-to-br from-blue-50 via-purple-50 to-white dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 min-h-screen text-slate-900 dark:text-white flex flex-col transition-colors duration-500">
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="fixed top-6 right-6 p-2 rounded-full bg-white/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 transition z-50 border border-slate-200 dark:border-slate-700 backdrop-blur-sm">
+                        <!-- Sun -->
+                        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <!-- Moon -->
+                        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <nav class="p-6 glass sticky top-0 z-50">
+                        <div class="container mx-auto flex justify-between items-center">
+                            <h1
+                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-emerald-600 dark:from-blue-400 dark:to-emerald-400">
+                                DevOps Master</h1>
+                            <div class="space-x-4">
+                                <a href="#"
+                                    class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">Home</a>
+                                <a href="#"
+                                    class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">Metrics</a>
+                                <a href="#"
+                                    class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">Docs</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <main
+                        class="flex-grow container mx-auto px-4 py-12 flex flex-col items-center justify-center text-center">
+                        <div
+                            class="glass p-16 rounded-2xl shadow-2xl max-w-4xl w-full border border-purple-200 dark:border-purple-500/30 bg-white/50 dark:bg-slate-900/80">
+                            <div class="mb-8">
+                                <span
+                                    class="bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 px-4 py-1 rounded-full text-sm font-bold tracking-wide border dark:border-purple-500/50">UPDATED
+                                    FOR NOV 2025</span>
+                            </div>
+
+                            <h1
+                                class="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 dark:from-purple-400 dark:via-pink-400 dark:to-blue-400">
+                                The Terraform Bible
+                            </h1>
+
+                            <p
+                                class="text-2xl text-slate-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                                From absolute zero to a <span
+                                    class="text-emerald-600 dark:text-emerald-400 font-bold">€10,000/mo</span> expert.
+                                Master Infrastructure as Code with the most comprehensive, interactive guide available.
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-12">
+                                <div
+                                    class="p-6 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                    <div class="text-purple-600 dark:text-purple-400 font-bold text-xl mb-2">01.
+                                        Foundations</div>
+                                    <p class="text-slate-500 dark:text-gray-400 text-sm">Master HCL syntax, state
+                                        management, and the core workflow.</p>
+                                </div>
+                                <div
+                                    class="p-6 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                    <div class="text-pink-600 dark:text-pink-400 font-bold text-xl mb-2">02.
+                                        Architecture</div>
+                                    <p class="text-slate-500 dark:text-gray-400 text-sm">Build reusable modules and
+                                        scalable multi-environment setups.</p>
+                                </div>
+                                <div
+                                    class="p-6 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
+                                    <div class="text-blue-600 dark:text-blue-400 font-bold text-xl mb-2">03. Production
+                                    </div>
+                                    <p class="text-slate-500 dark:text-gray-400 text-sm">CI/CD pipelines, testing
+                                        frameworks, and security best practices.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                                <a href="/bible/01_intro"
+                                    class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-purple-500/30 transition transform hover:-translate-y-1">
+                                    Start Reading Now
+                                </a>
+                                <a href="/api/terraform/state"
+                                    class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-gray-300 border border-slate-200 dark:border-slate-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                                    View Live State
+                                </a>
+                            </div>
+                        </div>
+                    </main>
+
+                    <script>
+                        const html = document.documentElement;
+                        const toggle = document.getElementById('theme-toggle');
+
+                        // Check local storage or system preference
+                        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                            html.classList.add('dark');
+                        } else {
+                            html.classList.remove('dark');
+                        }
+
+                        toggle.addEventListener('click', () => {
+                            if (html.classList.contains('dark')) {
+                                html.classList.remove('dark');
+                                localStorage.theme = 'light';
+                            } else {
+                                html.classList.add('dark');
+                                localStorage.theme = 'dark';
+                            }
+                        });
+                    </script>
+
+                </body>
+
+                </html>

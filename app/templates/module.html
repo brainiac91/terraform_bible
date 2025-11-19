@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ topic }} - DevOps Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .prose h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #60a5fa;
+        }
+
+        .prose h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+
+        .prose h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #cbd5e1;
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #94a3b8;
+        }
+
+        .prose pre {
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose code {
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen flex">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-800 border-r border-slate-700 p-6 hidden md:block fixed h-full">
+        <h2 class="text-xl font-bold mb-8 text-blue-400">DevOps Modules</h2>
+        <nav class="space-y-4">
+            <a href="/" class="block text-gray-400 hover:text-white transition">← Back to Home</a>
+            <div class="h-px bg-slate-700 my-4"></div>
+            <a href="/learn/terraform"
+                class="block text-white font-semibold bg-blue-600/20 px-4 py-2 rounded-lg">Terraform</a>
+            <a href="/learn/docker" class="block text-gray-400 hover:text-white px-4 py-2 transition">Docker</a>
+            <a href="/learn/kubernetes" class="block text-gray-400 hover:text-white px-4 py-2 transition">Kubernetes</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow md:ml-64 p-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="prose max-w-none">
+                {{ content | safe }}
+            </div>
+
+            <!-- Interactive Section Placeholder -->
+            <div class="mt-12 p-6 bg-slate-800 rounded-xl border border-slate-700">
+                <h3 class="text-xl font-bold mb-4 text-emerald-400">Try it yourself!</h3>
+                <p class="text-gray-400 mb-4">Open your terminal and run:</p>
+                <pre class="bg-black p-4 rounded-lg text-green-400"><code>terraform init
+terraform plan</code></pre>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

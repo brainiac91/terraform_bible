@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ current_chapter.title }} - The Terraform Bible</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Light Mode Typography */
+        .prose h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #4f46e5;
+        }
+
+        .prose h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .prose h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #334155;
+        }
+
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+            color: #475569;
+            font-size: 1.1rem;
+        }
+
+        .prose pre {
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .prose ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: #475569;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        .prose strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #4f46e5;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #475569;
+            background: rgba(79, 70, 229, 0.05);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Dark Mode Overrides */
+        .dark .prose h1 {
+            color: #a78bfa;
+        }
+
+        .dark .prose h2 {
+            color: #e2e8f0;
+            border-bottom-color: #334155;
+        }
+
+        .dark .prose h3 {
+            color: #cbd5e1;
+        }
+
+        .dark .prose p {
+            color: #94a3b8;
+        }
+
+        .dark .prose pre {
+            border-color: #334155;
+            background: #0f172a;
+        }
+
+        /* Let HLJS handle code colors, just bg */
+        .dark .prose ul {
+            color: #94a3b8;
+        }
+
+        .dark .prose strong {
+            color: #f8fafc;
+        }
+
+        .dark .prose blockquote {
+            border-left-color: #a78bfa;
+            color: #cbd5e1;
+            background: rgba(167, 139, 250, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-white min-h-screen flex">
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle"
+        class="fixed top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition z-50 border border-slate-200 dark:border-slate-700">
+        <!-- Sun -->
+        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 0 11-8 0 4 4 0 018 0z">
+            </path>
+        </svg>
+        <!-- Moon -->
+        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <aside
+        class="w-80 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-shrink-0 hidden lg:flex flex-col h-screen sticky top-0 transition-colors duration-300">
+        <div class="p-6 border-b border-slate-200 dark:border-slate-800">
+            <h1
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
+                The Terraform Bible
+            </h1>
+            <p class="text-xs text-gray-500 mt-2">Zero to Hero (Nov 2025 Edition)</p>
+        </div>
+        <nav class="flex-grow overflow-y-auto p-6 space-y-1">
+            <a href="/"
+                class="block text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white mb-6 transition">←
+                Back to Cover</a>
+
+            {% for chapter in chapters %}
+            <a href="/bible/{{ chapter.id }}" class="block px-4 py-3 rounded-lg transition text-sm font-medium
+                      {% if chapter.id == current_chapter.id %}
+                      bg-purple-100 text-purple-700 border border-purple-200 dark:bg-purple-600/20 dark:text-purple-300 dark:border-purple-500/30
+                      {% else %}
+                      text-gray-600 dark:text-gray-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white
+                      {% endif %}">
+                {{ chapter.title }}
+            </a>
+            {% endfor %}
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-8 lg:p-16">
+        <div class="prose max-w-none">
+            {{ content | safe }}
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            {% if prev_chapter %}
+            <a href="/bible/{{ prev_chapter.id }}"
+                class="group flex items-center text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition">
+                <span class="mr-3 text-2xl group-hover:-translate-x-1 transition">←</span>
+                <div class="text-left">
+                    <div class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider">Previous</div>
+                    <div class="font-medium">{{ prev_chapter.title }}</div>
+                </div>
+            </a>
+            {% else %}
+            <div></div>
+            {% endif %}
+
+            {% if next_chapter %}
+            <a href="/bible/{{ next_chapter.id }}"
+                class="group flex items-center text-right text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition">
+                <div class="text-right">
+                    <div class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider">Next</div>
+                    <div class="font-medium">{{ next_chapter.title }}</div>
+                </div>
+                <span class="ml-3 text-2xl group-hover:translate-x-1 transition">→</span>
+            </a>
+            {% endif %}
+        </div>
+    </main>
+
+    <script>
+        const html = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        toggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
