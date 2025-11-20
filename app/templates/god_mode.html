@@ -345,24 +345,7 @@ resource "aws_security_group" "sg_b" {
   value = aws_instance.web.publicip
 }`,
                 objectives: ["Change to 'public_ip'"],
-                validator: (code) => code.includes('public_ip')
-            },
-            {
-                id: 20,
-                title: "Provisioner Cleanup",
-                desc: "Best Practice: 'local-exec' provisioners are brittle. Remove the provisioner block entirely.",
-                code: `resource "aws_instance" "web" {
-  instance_type = "t2.micro"
-  
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.web.private_ip} >> private_ips.txt"
-  }
-}`,
-                objectives: ["Remove the provisioner block"],
-                validator: (code) => !code.includes('provisioner') && !code.includes('local-exec')
-            },
-            {
-                id: 21,
+                validator: (code) => code.includes('public_ip'),
                 title: "Unquoted String",
                 desc: "Syntax: The AMI ID is a string and must be quoted.",
                 code: `resource "aws_instance" "web" {
