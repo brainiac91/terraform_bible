@@ -172,6 +172,26 @@ CHAPTERS = [
             "hints": ["terraform plan -detailed-exitcode", "Check the exit code"],
             "solution": "run: terraform plan -detailed-exitcode\n# If exit code is 2, there is drift -> Fail build"
         }
+    },
+    {
+        "id": "09_security",
+        "title": "9. Advanced Security & Compliance",
+        "quiz": [
+            {"q": "What is the best way to handle database passwords in Terraform?", "options": ["Hardcode them", "Use environment variables or a secrets manager", "Put them in a text file", "Use default values"], "a": 1},
+            {"q": "What does Checkov do?", "options": ["Formats code", "Scans for security misconfigurations", "Destroys resources", "Generates documentation"], "a": 1},
+            {"q": "Which tool allows you to write Policy as Code?", "options": ["OPA", "Git", "Docker", "Bash"], "a": 0}
+        ],
+        "flashcards": [
+            {"front": "Secrets Management", "back": "The practice of securely storing and accessing sensitive data (e.g., Vault, AWS Secrets Manager)."},
+            {"front": "Static Analysis (SAST)", "back": "Analyzing code for security flaws without executing it (e.g., Checkov, TFSec)."},
+            {"front": "Policy as Code", "back": "Defining and enforcing rules using code (e.g., OPA Rego)."}
+        ],
+        "challenge": {
+            "title": "The Security Auditor",
+            "description": "You found a resource 'aws_s3_bucket' 'data' with 'acl = \"public-read\"'. Write a Checkov-style rule (conceptually) or simply fix the Terraform code to make it private.",
+            "hints": ["Change the ACL", "Public buckets are bad"],
+            "solution": "resource \"aws_s3_bucket\" \"data\" {\n  bucket = \"...\"\n  acl    = \"private\"\n}"
+        }
     }
 ]
 

@@ -20,6 +20,10 @@ app.include_router(terraform.router)
 
 from routers.bible import CHAPTERS
 
+@app.get("/god_mode", response_class=HTMLResponse)
+async def god_mode(request: Request):
+    return templates.TemplateResponse("god_mode.html", {"request": request})
+
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {

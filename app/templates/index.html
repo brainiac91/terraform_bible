@@ -159,11 +159,29 @@
                     </div>
                 </div>
 
+                <!-- Badges -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-sm mb-3 text-slate-900 dark:text-white">Badges</h3>
+                    <div class="flex space-x-2" id="badges-container">
+                        <!-- Injected via JS -->
+                        <span class="text-xs text-slate-500">Complete chapters to earn badges.</span>
+                    </div>
+                </div>
+
                 <!-- Tools Mini-List -->
                 <div
                     class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
                     <h3 class="font-bold text-sm mb-3 text-slate-900 dark:text-white">Tools</h3>
                     <ul class="space-y-2">
+                        <li>
+                            <a href="/god_mode"
+                                class="flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition">
+                                <span
+                                    class="w-6 h-6 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded mr-2 text-xs">⚡</span>
+                                God Mode
+                            </a>
+                        </li>
                         <li>
                             <a href="/api/terraform/state"
                                 class="flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition">
@@ -191,37 +209,34 @@
             chapterProgress: {}
         };
 
+        // Fix for existing users with missing streak
+        if (typeof userState.streak === 'undefined') userState.streak = 1;
+
         // Streak Logic
         const today = new Date().toDateString();
         if (userState.lastLogin !== today) {
-            if (userState.lastLogin) { // Check if not first login
-                // Simple streak logic: if last login was yesterday, increment. Else reset (simplified here for now)
-                // For this demo, we just increment if it's a new day to show progress
-                userState.streak++;
+            if (userState.lastLogin) {
+                // Check if consecutive day (simplified)
+                const last = new Date(userState.lastLogin);
+                const diff = (new Date() - last) / (1000 * 60 * 60 * 24);
+                if (diff <= 2) {
+                    userState.streak++;
+                } else {
+                    userState.streak = 1;
+                }
+            } else {
+                userState.streak = 1;
             }
             userState.lastLogin = today;
             localStorage.setItem('tf_bible_user', JSON.stringify(userState));
         }
 
         // Ensure state consistency & UNLOCK ALL (for dev/demo purposes, or just first one)
-        // Actually, let's unlock the first one if nothing is unlocked
         if (Object.keys(userState.chapterProgress).length === 0) {
             if (chapters.length > 0) {
                 userState.chapterProgress[chapters[0].id] = { status: 'unlocked', score: 0 };
             }
         }
-
-        // Ensure state consistency
-        chapters.forEach((ch, index) => {
-            if (!userState.chapterProgress[ch.id]) {
-                // Do not auto-unlock everything, only ensure object exists if needed? 
-                // Actually, let's keep it strict: only unlock if explicitly unlocked.
-                // But for the "Bible" feel, maybe we want them to see all? 
-                // Let's stick to the previous logic but fixed:
-                // If we want to unlock all for testing:
-                // userState.chapterProgress[ch.id] = { status: 'unlocked', score: 0 };
-            }
-        });
 
         // Save back just in case
         localStorage.setItem('tf_bible_user', JSON.stringify(userState));
@@ -239,9 +254,24 @@
             document.getElementById('nav-xp').innerText = userState.xp;
             document.getElementById('nav-streak').innerText = userState.streak;
 
-            // Mobile stats might not exist in DOM if hidden, but good to try/catch or check
+            // Mobile stats
             if (document.getElementById('mobile-xp')) document.getElementById('mobile-xp').innerText = userState.xp;
             if (document.getElementById('mobile-streak')) document.getElementById('mobile-streak').innerText = userState.streak;
+
+            // Badges
+            const badgesContainer = document.getElementById('badges-container');
+            if (userState.xp > 100) {
+                badgesContainer.innerHTML = '<span title="Novice" class="text-2xl cursor-help">🥉</span>';
+            }
+            if (userState.xp > 500) {
+                badgesContainer.innerHTML += '<span title="Expert" class="text-2xl cursor-help">🥈</span>';
+            }
+            if (percent === 100) {
+                badgesContainer.innerHTML += '<span title="Master" class="text-2xl cursor-help">🥇</span>';
+            }
+            if (userState.streak > 3) {
+                badgesContainer.innerHTML += '<span title="On Fire" class="text-2xl cursor-help">🔥</span>';
+            }
 
             // Chapters
             const container = document.getElementById('chapter-list');
@@ -252,14 +282,10 @@
                 // Default to locked if not in state
                 const progress = userState.chapterProgress[ch.id] || { status: 'locked', score: 0 };
 
-                // Force first chapter unlocked if it's the very first one and nothing else is there?
-                // Already handled in init above.
-
                 const isLocked = progress.status === 'locked';
                 const isCompleted = progress.status === 'completed';
 
                 if (!isLocked && !firstUnlocked && !isCompleted) firstUnlocked = ch;
-                // If everything is completed, firstUnlocked might remain null, which is fine.
 
                 const el = document.createElement('div');
                 // Compact row design
@@ -292,8 +318,6 @@
             });
 
             // Up Next
-            // If firstUnlocked is null (all completed), show the last one or a "Done" message?
-            // Let's just show the first one if all are locked (shouldn't happen) or the last one if all completed.
             const next = firstUnlocked || chapters[0];
             if (next) {
                 document.getElementById('next-lesson-title').innerText = next.title;
