@@ -1,70 +1,79 @@
 # 2. The Terraform Workflow
 
-The Terraform workflow is a cycle: **Write -> Init -> Plan -> Apply**. Mastering this is crucial for avoiding production outages.
+The Terraform workflow is a cycle: **Write -> Init -> Plan -> Apply**. But expert engineers know the hidden steps in between.
 
-## The Core Cycle
+## 1. Write & Format
+Code readability is not optional.
 
-### 1. Write
-You modify your `.tf` files.
-*   **Best Practice**: Keep files small and logical (`main.tf`, `variables.tf`, `outputs.tf`).
-
-### 2. Format & Validate
-Before you even try to run your code, clean it up.
-
-**Exercise**:
-Mess up the indentation in your `main.tf` from Chapter 1. Then run:
+### The Canonical Format
+Terraform includes a built-in style guide.
 ```bash
-terraform fmt
+terraform fmt -recursive
 ```
-Terraform will automatically fix the spacing to the canonical standard. **Always run this before committing to Git.**
+**Pro Tip**: Add this to your CI/CD pipeline. If code isn't formatted, fail the build.
 
-Then run:
+### Validation
 ```bash
 terraform validate
 ```
-This checks for syntax errors (e.g., missing braces) without connecting to any cloud provider.
+Checks for syntax errors and attribute correctness (e.g., using a string where a number is required). It does **not** check if your AWS credentials are valid.
 
-### 3. Plan (The Safety Net)
-The `plan` command is your crystal ball. It tells you what *will* happen.
+## 2. Init & The Lock File
+When you run `terraform init`, a file named `.terraform.lock.hcl` is created.
 
-```bash
-terraform plan
-```
+**Why is this critical?**
+It records the *exact* SHA256 hash of the provider plugins you used.
+*   **Scenario**: You use `aws` provider v5.0. It works.
+*   **Tomorrow**: AWS releases v5.1 with a breaking bug.
+*   **Result**: Without the lock file, your colleague might download v5.1 and break production. With the lock file, they are forced to use v5.0 until you explicitly upgrade.
 
-**Understanding the Output**:
-*   `+` (Green): Resource will be created.
-*   `-` (Red): Resource will be destroyed.
-*   `~` (Yellow): Resource will be modified in place.
-*   `-/+`: Resource will be destroyed and recreated (Dangerous!).
+**Command**: `terraform init -upgrade` (To update the lock file).
 
-**Real World Tip**:
-In automation (CI/CD), always save your plan:
+## 3. Plan: The Crystal Ball
 ```bash
 terraform plan -out=tfplan
 ```
-This guarantees that the `apply` step executes *exactly* what was shown in the plan, even if the infrastructure changed in the meantime.
 
-### 4. Apply
-Executes the changes.
+### Understanding "Drift"
+Drift occurs when the real world changes without Terraform knowing.
+*   **Example**: You created a file. Someone deleted it manually.
+*   **Terraform's Reaction**:
+    1.  `plan` refreshes state (checks the real world).
+    2.  It sees the file is gone.
+    3.  It plans to recreate it (`+`).
 
+### Refresh-Only Mode
+Sometimes you *want* to accept the manual changes (e.g., someone manually added a tag you want to keep).
+```bash
+terraform plan -refresh-only
+```
+This updates your state file to match reality, without changing any infrastructure.
+
+## 4. Apply
 ```bash
 terraform apply tfplan
 ```
-(If you saved a plan file, you don't need to type `yes`).
 
-## The "Destroy" Command
-To tear everything down:
+## 5. Destroy (and how to prevent it)
 ```bash
 terraform destroy
 ```
-**Warning**: This deletes EVERYTHING defined in your configuration. In production, you often want to prevent this. We'll cover "Lifecycle Rules" later to prevent accidental deletion.
 
-## Troubleshooting Common Errors
+### Lifecycle Rules
+You can prevent accidental deletion of critical resources (like Databases).
 
-### "Plugin not found"
-*   **Cause**: You added a new provider but didn't run `init`.
-*   **Fix**: Run `terraform init`.
+```hcl
+resource "local_file" "critical" {
+  filename = "database.db"
+  content  = "DATA"
 
-### "Lock Error"
-*   **Cause**: Another process (or you in another terminal) is running Terraform.
-*   **Fix**: Wait for it to finish. If you are SURE it crashed, use `terraform force-unlock <LOCK_ID>`.
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+```
+**Exercise**:
+1.  Add the `lifecycle` block to your file from Chapter 1.
+2.  Run `terraform apply`.
+3.  Try `terraform destroy`.
+4.  **Result**: Terraform will error and refuse to destroy it. This is a safety mechanism.

@@ -1,70 +1,67 @@
 # 6. Advanced HCL Patterns
 
-This is where you separate the juniors from the seniors. HCL is a powerful language if you know how to use it.
+HCL is not just configuration; it's a programming language.
 
-## Loops: `count` vs `for_each`
-
-### The `count` Meta-Argument
-Creates N copies of a resource.
-```hcl
-resource "local_file" "copies" {
-  count    = 3
-  filename = "file_${count.index}.txt"
-  content  = "I am number ${count.index}"
-}
-```
-*   **Problem**: If you remove item 0, items 1 and 2 shift index, causing Terraform to recreate them.
-
-### The `for_each` Meta-Argument (Preferred)
-Iterates over a map or set. Stable keys mean no unnecessary recreation.
+## 1. Splat Expressions (`*`)
+Extract a list of attributes from a list of objects.
 
 ```hcl
-variable "files" {
-  type = map(string)
-  default = {
-    "config" = "Config data",
-    "logs"   = "Log setup"
-  }
+# Assume you created 3 servers with count = 3
+output "all_ips" {
+  value = aws_instance.web[*].public_ip
 }
-
-resource "local_file" "loop" {
-  for_each = var.files
-  
-  filename = "${each.key}.txt"
-  content  = each.value
-}
+# Result: ["1.2.3.4", "5.6.7.8", "9.10.11.12"]
 ```
 
-## Dynamic Blocks
-Used to generate nested blocks (like `ingress` rules in a security group) dynamically.
+## 2. The `for` Expression
+Transform lists and maps. Like Python list comprehensions.
 
 ```hcl
-resource "aws_security_group" "example" {
-  name = "example"
+variable "names" {
+  default = ["alice", "bob", "charlie"]
+}
+
+output "upper_names" {
+  value = [for name in var.names : upper(name)]
+}
+# Result: ["ALICE", "BOB", "CHARLIE"]
+
+# Filter a list
+output "short_names" {
+  value = [for name in var.names : name if length(name) < 4]
+}
+# Result: ["bob"]
+```
+
+## 3. Dynamic Blocks with Objects
+The most powerful pattern for complex resources (like Load Balancers).
+
+```hcl
+variable "ingress_rules" {
+  type = list(object({
+    port        = number
+    description = string
+    cidr        = list(string)
+  }))
+  default = [
+    { port = 80, description = "HTTP", cidr = ["0.0.0.0/0"] },
+    { port = 22, description = "SSH",  cidr = ["10.0.0.0/8"] }
+  ]
+}
+
+resource "aws_security_group" "main" {
+  name = "dynamic-sg"
 
   dynamic "ingress" {
-    for_each = [80, 443, 8080]
+    for_each = var.ingress_rules
     content {
-      from_port = ingress.value
-      to_port   = ingress.value
-      protocol  = "tcp"
+      from_port   = ingress.value.port
+      to_port     = ingress.value.port
+      protocol    = "tcp"
+      description = ingress.value.description
+      cidr_blocks = ingress.value.cidr
     }
   }
 }
 ```
-
-## Terraform Functions
-*   `try(local.foo, "fallback")`: Great for optional values.
-*   `yamldecode(file("config.yaml"))`: Read config from YAML files.
-*   `templatefile("script.sh.tftpl", { name = "Alin" })`: Generate scripts with variable substitution.
-
-## Import Blocks (New in v1.5+)
-If you have existing infrastructure created manually, you can bring it under Terraform control without complex CLI commands.
-
-```hcl
-import {
-  to = aws_s3_bucket.legacy
-  id = "my-existing-bucket-name"
-}
-```
-Run `terraform plan`, and Terraform will generate the code for you!
+This creates a Security Group that adapts to however many rules you define in the variable.

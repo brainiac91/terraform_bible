@@ -10,16 +10,22 @@ app = FastAPI(title="DevOps Learning App")
 # app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Setup templates
-templates = Jinja2Templates(directory="templates")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 # Include Routers
 from routers import bible, terraform
 app.include_router(bible.router)
 app.include_router(terraform.router)
 
+from routers.bible import CHAPTERS
+
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "message": "Welcome to the DevOps Learning Platform"})
+    return templates.TemplateResponse("index.html", {
+        "request": request, 
+        "chapters": CHAPTERS
+    })
 
 @app.get("/health")
 async def health_check():

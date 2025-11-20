@@ -1,77 +1,74 @@
 # 4. Variables & Outputs
 
-Hardcoding values (like IPs, names, counts) makes your code brittle. Use Variables to make it dynamic.
+Hardcoding values is an anti-pattern. Use Input Variables to make your code reusable.
 
-## Input Variables
-Define them in a `variables.tf` file.
-
-### Basic Syntax
-```hcl
-variable "filename" {
-  type        = string
-  description = "The name of the file to create"
-  default     = "default.txt"
-}
-```
-
-### Type Constraints
-Always use types!
-*   `string`, `number`, `bool`
-*   `list(string)`, `map(string)`, `object({ name=string, age=number })`
-
-### Validation (Best Practice)
-You can enforce rules on your variables.
+## Complex Types
+Strings are boring. Let's use Objects.
 
 ```hcl
-variable "environment" {
-  type = string
-  validation {
-    condition     = contains(["dev", "prod"], var.environment)
-    error_message = "Environment must be 'dev' or 'prod'."
+variable "server_config" {
+  type = object({
+    name      = string
+    instances = number
+    tags      = map(string)
+  })
+  
+  default = {
+    name      = "web"
+    instances = 2
+    tags      = { Environment = "Dev" }
   }
 }
 ```
 
-## Setting Variables
-Order of precedence (Last one wins):
-1.  `default` value in config.
-2.  `TF_VAR_filename` environment variable.
-3.  `terraform.tfvars` file.
-4.  `-var="filename=foo.txt"` command line argument.
+## Validation with Regex
+You can enforce strict rules.
 
-**Exercise**:
-1.  Create `variables.tf` with the content above.
-2.  Update `main.tf` to use it:
+```hcl
+variable "image_id" {
+  type        = string
+  description = "The ID of the machine image (AMI)"
+
+  validation {
+    condition     = can(regex("^ami-[a-z0-9]{8,17}$", var.image_id))
+    error_message = "The image_id must start with 'ami-', followed by alphanumeric characters."
+  }
+}
+```
+
+## The `tfvars` Ecosystem
+How do you set variables in production?
+
+1.  **terraform.tfvars**: Automatically loaded. Good for default values.
+2.  **prod.tfvars**: Explicitly loaded.
+    ```bash
+    terraform apply -var-file="prod.tfvars"
+    ```
+3.  **Environment Variables**: Good for secrets (CI/CD).
+    ```bash
+    export TF_VAR_db_password="correct-horse-battery-staple"
+    ```
+
+## Outputs & `terraform_remote_state`
+Outputs are the "API" of your module.
+
+**Scenario**: Your Network team creates a VPC. Your App team needs the VPC ID.
+1.  **Network Team**:
     ```hcl
-    resource "local_file" "welcome" {
-      filename = var.filename
-      content  = "Content for ${var.environment}"
+    output "vpc_id" { value = aws_vpc.main.id }
+    ```
+2.  **App Team**:
+    ```hcl
+    data "terraform_remote_state" "network" {
+      backend = "s3"
+      config = {
+        bucket = "network-state"
+        key    = "terraform.tfstate"
+      }
+    }
+    
+    resource "aws_instance" "web" {
+      subnet_id = data.terraform_remote_state.network.outputs.vpc_id
     }
     ```
-3.  Create a `terraform.tfvars` file:
-    ```hcl
-    filename    = "production.txt"
-    environment = "prod"
-    ```
-4.  Run `terraform apply`.
-
-## Outputs
-Outputs are like return values for your infrastructure.
-
-```hcl
-output "file_id" {
-  value = local_file.welcome.id
-}
-```
-
-Run `terraform output` to see them.
-
-### Sensitive Data
-If you output a password, mark it sensitive!
-```hcl
-output "db_password" {
-  value     = "supersecret"
-  sensitive = true
-}
-```
-Terraform will redact this in the CLI ("<sensitive>"), but it is **still visible in the state file**.
+This decouples your teams while keeping them connected.

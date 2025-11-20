@@ -4,8 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Learning App</title>
+    <title>Student Dashboard - The Terraform Bible</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,173 +25,345 @@
         }
 
         .glass {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .dark .glass {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white flex flex-col">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white min-h-screen transition-colors duration-300">
 
-    <nav class="p-6 glass sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">
-                DevOps Master</h1>
-            <div class="space-x-4">
-                <a href="#" class="hover:text-blue-300 transition">Home</a>
-                <!DOCTYPE html>
-                <!DOCTYPE html>
-                <html lang="en">
+    <!-- Top Navigation -->
+    <nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🚀</span>
+                <h1 class="font-bold text-lg tracking-tight">The Terraform Bible</h1>
+            </div>
 
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>DevOps Learning App</title>
-                    <script src="https://cdn.tailwindcss.com"></script>
-                    <script>
-                        tailwind.config = {
-                            darkMode: 'class',
-                        }
-                    </script>
-                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-                        rel="stylesheet">
-                    <style>
-                        body {
-                            font-family: 'Inter', sans-serif;
-                            transition: background-color 0.3s, color 0.3s;
-                        }
+            <div class="flex items-center space-x-4">
+                <div
+                    class="hidden md:flex items-center space-x-4 text-sm font-medium text-slate-600 dark:text-slate-400">
+                    <div class="flex items-center"><span class="text-yellow-500 mr-1">✨</span> <span
+                            id="nav-xp">0</span> XP</div>
+                    <div class="flex items-center"><span class="text-orange-500 mr-1">🔥</span> <span
+                            id="nav-streak">1</span> Day Streak</div>
+                </div>
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                        </path>
+                    </svg>
+                    <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-                        .glass {
-                            background: rgba(255, 255, 255, 0.7);
-                            backdrop-filter: blur(10px);
-                            border: 1px solid rgba(255, 255, 255, 0.5);
-                        }
+    <main class="max-w-5xl mx-auto px-4 py-8">
 
-                        .dark .glass {
-                            background: rgba(255, 255, 255, 0.1);
-                            border: 1px solid rgba(255, 255, 255, 0.2);
-                        }
-                    </style>
-                </head>
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-1">Student Dashboard</h2>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">Track your progress and master Infrastructure as Code.
+            </p>
+        </div>
 
-                <body
-                    class="bg-gradient-to-br from-blue-50 via-purple-50 to-white dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 min-h-screen text-slate-900 dark:text-white flex flex-col transition-colors duration-500">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                    <!-- Theme Toggle -->
-                    <button id="theme-toggle"
-                        class="fixed top-6 right-6 p-2 rounded-full bg-white/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 transition z-50 border border-slate-200 dark:border-slate-700 backdrop-blur-sm">
-                        <!-- Sun -->
-                        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
-                            </path>
-                        </svg>
-                        <!-- Moon -->
-                        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
-                            </path>
-                        </svg>
-                    </button>
+            <!-- Left Column: Progress & Path -->
+            <div class="md:col-span-2 space-y-6">
 
-                    <nav class="p-6 glass sticky top-0 z-50">
-                        <div class="container mx-auto flex justify-between items-center">
-                            <h1
-                                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-emerald-600 dark:from-blue-400 dark:to-emerald-400">
-                                DevOps Master</h1>
-                            <div class="space-x-4">
-                                <a href="#"
-                                    class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">Home</a>
-                                <a href="#"
-                                    class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">Metrics</a>
-                                <a href="#"
-                                    class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-300 transition">Docs</a>
-                            </div>
+                <!-- Compact Progress Card -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Course Progress</p>
+                        <div class="flex items-baseline space-x-2">
+                            <span id="stat-progress"
+                                class="text-3xl font-bold text-purple-600 dark:text-purple-400">0%</span>
+                            <span class="text-xs text-slate-400">Completed</span>
                         </div>
-                    </nav>
+                    </div>
+                    <div class="w-1/2">
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+                            <div id="progress-bar" class="bg-purple-600 h-2 rounded-full transition-all duration-1000"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
 
-                    <main
-                        class="flex-grow container mx-auto px-4 py-12 flex flex-col items-center justify-center text-center">
-                        <div
-                            class="glass p-16 rounded-2xl shadow-2xl max-w-4xl w-full border border-purple-200 dark:border-purple-500/30 bg-white/50 dark:bg-slate-900/80">
-                            <div class="mb-8">
+                <!-- Learning Path List -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-4 flex items-center">
+                        <span
+                            class="bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 p-1 rounded mr-2 text-xs">MAP</span>
+                        Learning Path
+                    </h3>
+                    <div class="space-y-3" id="chapter-list">
+                        <!-- Chapters injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Up Next & Insights -->
+            <div class="space-y-6">
+
+                <!-- Up Next Card -->
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl p-5 text-white shadow-lg">
+                    <p class="text-purple-200 text-xs font-bold uppercase tracking-wider mb-2">Continue Learning</p>
+                    <h3 class="text-xl font-bold mb-4 leading-tight" id="next-lesson-title">Loading...</h3>
+                    <a href="#" id="next-lesson-link"
+                        class="block w-full text-center bg-white text-purple-700 font-bold py-2.5 rounded-lg text-sm hover:bg-purple-50 transition shadow-sm">
+                        Start Lesson
+                    </a>
+                </div>
+
+                <!-- Quick Stats (Mobile only, hidden on desktop as it's in nav) -->
+                <div class="md:hidden grid grid-cols-2 gap-4">
+                    <div
+                        class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-center">
+                        <span class="text-2xl block mb-1">✨</span>
+                        <span class="font-bold block" id="mobile-xp">0</span>
+                        <span class="text-xs text-slate-500">Total XP</span>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-center">
+                        <span class="text-2xl block mb-1">🔥</span>
+                        <span class="font-bold block" id="mobile-streak">0</span>
+                        <span class="text-xs text-slate-500">Day Streak</span>
+                    </div>
+                </div>
+
+                <!-- AI Insight -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-center mb-3">
+                        <span class="text-lg mr-2">🤖</span>
+                        <h3 class="font-bold text-sm">AI Insight</h3>
+                    </div>
+                    <div id="insight-content" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Complete more quizzes to generate personalized insights.
+                    </div>
+                </div>
+
+                <!-- Tools Mini-List -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <h3 class="font-bold text-sm mb-3 text-slate-900 dark:text-white">Tools</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="/api/terraform/state"
+                                class="flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition">
                                 <span
-                                    class="bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 px-4 py-1 rounded-full text-sm font-bold tracking-wide border dark:border-purple-500/50">UPDATED
-                                    FOR NOV 2025</span>
-                            </div>
+                                    class="w-6 h-6 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded mr-2 text-xs">🔍</span>
+                                State Visualizer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
 
-                            <h1
-                                class="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 dark:from-purple-400 dark:via-pink-400 dark:to-blue-400">
-                                The Terraform Bible
-                            </h1>
+    <script id="chapters-data" type="application/json">
+        {{ chapters | tojson }}
+    </script>
 
-                            <p
-                                class="text-2xl text-slate-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                                From absolute zero to a <span
-                                    class="text-emerald-600 dark:text-emerald-400 font-bold">€10,000/mo</span> expert.
-                                Master Infrastructure as Code with the most comprehensive, interactive guide available.
-                            </p>
+    <script>
+        const chapters = JSON.parse(document.getElementById('chapters-data').textContent);
+        const userState = JSON.parse(localStorage.getItem('tf_bible_user')) || {
+            xp: 0,
+            streak: 1,
+            lastLogin: '',
+            chapterProgress: {}
+        };
 
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-12">
-                                <div
-                                    class="p-6 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
-                                    <div class="text-purple-600 dark:text-purple-400 font-bold text-xl mb-2">01.
-                                        Foundations</div>
-                                    <p class="text-slate-500 dark:text-gray-400 text-sm">Master HCL syntax, state
-                                        management, and the core workflow.</p>
-                                </div>
-                                <div
-                                    class="p-6 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
-                                    <div class="text-pink-600 dark:text-pink-400 font-bold text-xl mb-2">02.
-                                        Architecture</div>
-                                    <p class="text-slate-500 dark:text-gray-400 text-sm">Build reusable modules and
-                                        scalable multi-environment setups.</p>
-                                </div>
-                                <div
-                                    class="p-6 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-sm">
-                                    <div class="text-blue-600 dark:text-blue-400 font-bold text-xl mb-2">03. Production
-                                    </div>
-                                    <p class="text-slate-500 dark:text-gray-400 text-sm">CI/CD pipelines, testing
-                                        frameworks, and security best practices.</p>
-                                </div>
-                            </div>
+        // Streak Logic
+        const today = new Date().toDateString();
+        if (userState.lastLogin !== today) {
+            if (userState.lastLogin) { // Check if not first login
+                // Simple streak logic: if last login was yesterday, increment. Else reset (simplified here for now)
+                // For this demo, we just increment if it's a new day to show progress
+                userState.streak++;
+            }
+            userState.lastLogin = today;
+            localStorage.setItem('tf_bible_user', JSON.stringify(userState));
+        }
 
-                            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                                <a href="/bible/01_intro"
-                                    class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-purple-500/30 transition transform hover:-translate-y-1">
-                                    Start Reading Now
-                                </a>
-                                <a href="/api/terraform/state"
-                                    class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-gray-300 border border-slate-200 dark:border-slate-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition">
-                                    View Live State
-                                </a>
-                            </div>
+        // Ensure state consistency & UNLOCK ALL (for dev/demo purposes, or just first one)
+        // Actually, let's unlock the first one if nothing is unlocked
+        if (Object.keys(userState.chapterProgress).length === 0) {
+            if (chapters.length > 0) {
+                userState.chapterProgress[chapters[0].id] = { status: 'unlocked', score: 0 };
+            }
+        }
+
+        // Ensure state consistency
+        chapters.forEach((ch, index) => {
+            if (!userState.chapterProgress[ch.id]) {
+                // Do not auto-unlock everything, only ensure object exists if needed? 
+                // Actually, let's keep it strict: only unlock if explicitly unlocked.
+                // But for the "Bible" feel, maybe we want them to see all? 
+                // Let's stick to the previous logic but fixed:
+                // If we want to unlock all for testing:
+                // userState.chapterProgress[ch.id] = { status: 'unlocked', score: 0 };
+            }
+        });
+
+        // Save back just in case
+        localStorage.setItem('tf_bible_user', JSON.stringify(userState));
+
+        // --- RENDER ---
+        function render() {
+            // Stats
+            const totalChapters = chapters.length;
+            const completed = Object.values(userState.chapterProgress).filter(c => c.status === 'completed').length;
+            const percent = totalChapters > 0 ? Math.round((completed / totalChapters) * 100) : 0;
+
+            document.getElementById('stat-progress').innerText = percent + '%';
+            document.getElementById('progress-bar').style.width = percent + '%';
+
+            document.getElementById('nav-xp').innerText = userState.xp;
+            document.getElementById('nav-streak').innerText = userState.streak;
+
+            // Mobile stats might not exist in DOM if hidden, but good to try/catch or check
+            if (document.getElementById('mobile-xp')) document.getElementById('mobile-xp').innerText = userState.xp;
+            if (document.getElementById('mobile-streak')) document.getElementById('mobile-streak').innerText = userState.streak;
+
+            // Chapters
+            const container = document.getElementById('chapter-list');
+            container.innerHTML = '';
+            let firstUnlocked = null;
+
+            chapters.forEach((ch, index) => {
+                // Default to locked if not in state
+                const progress = userState.chapterProgress[ch.id] || { status: 'locked', score: 0 };
+
+                // Force first chapter unlocked if it's the very first one and nothing else is there?
+                // Already handled in init above.
+
+                const isLocked = progress.status === 'locked';
+                const isCompleted = progress.status === 'completed';
+
+                if (!isLocked && !firstUnlocked && !isCompleted) firstUnlocked = ch;
+                // If everything is completed, firstUnlocked might remain null, which is fine.
+
+                const el = document.createElement('div');
+                // Compact row design
+                el.className = `group flex items-center p-3 rounded-lg border transition-all ${isLocked
+                    ? 'bg-slate-50 dark:bg-slate-900/50 border-transparent opacity-60'
+                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-purple-300 dark:hover:border-purple-700 hover:shadow-sm cursor-pointer'
+                    }`;
+
+                if (!isLocked) {
+                    el.onclick = () => window.location.href = `/bible/${ch.id}`;
+                }
+
+                let statusIcon = '<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs text-slate-400">🔒</div>';
+                if (isCompleted) statusIcon = '<div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-xs text-green-600">✓</div>';
+                else if (!isLocked) statusIcon = '<div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-xs text-purple-600">▶</div>';
+
+                el.innerHTML = `
+                    <div class="mr-3">${statusIcon}</div>
+                    <div class="flex-grow min-w-0">
+                        <div class="flex justify-between items-center mb-0.5">
+                            <h3 class="font-semibold text-sm truncate ${isLocked ? 'text-slate-500' : 'text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors'}">
+                                ${ch.title}
+                            </h3>
+                            ${!isLocked && progress.score > 0 ? `<span class="text-xs font-bold ${progress.score >= 80 ? 'text-green-500' : 'text-slate-400'}">${progress.score}%</span>` : ''}
                         </div>
-                    </main>
+                    </div>
+                    ${!isLocked ? '<div class="text-slate-300 group-hover:text-purple-400 ml-2">→</div>' : ''}
+                `;
+                container.appendChild(el);
+            });
 
-                    <script>
-                        const html = document.documentElement;
-                        const toggle = document.getElementById('theme-toggle');
+            // Up Next
+            // If firstUnlocked is null (all completed), show the last one or a "Done" message?
+            // Let's just show the first one if all are locked (shouldn't happen) or the last one if all completed.
+            const next = firstUnlocked || chapters[0];
+            if (next) {
+                document.getElementById('next-lesson-title').innerText = next.title;
+                document.getElementById('next-lesson-link').href = `/bible/${next.id}`;
+                document.getElementById('next-lesson-link').innerText = "Start Lesson";
+            } else {
+                document.getElementById('next-lesson-title').innerText = "All Caught Up!";
+                document.getElementById('next-lesson-link').innerText = "Review Course";
+                document.getElementById('next-lesson-link').href = `/bible/${chapters[0].id}`;
+            }
 
-                        // Check local storage or system preference
-                        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                            html.classList.add('dark');
-                        } else {
-                            html.classList.remove('dark');
-                        }
+            // Insights
+            renderInsights();
+        }
 
-                        toggle.addEventListener('click', () => {
-                            if (html.classList.contains('dark')) {
-                                html.classList.remove('dark');
-                                localStorage.theme = 'light';
-                            } else {
-                                html.classList.add('dark');
-                                localStorage.theme = 'dark';
-                            }
-                        });
-                    </script>
+        function renderInsights() {
+            let lowest = null;
+            let minScore = 101;
 
-                </body>
+            chapters.forEach(ch => {
+                const p = userState.chapterProgress[ch.id];
+                if (p && p.status !== 'locked' && p.score > 0 && p.score < minScore) {
+                    minScore = p.score;
+                    lowest = ch;
+                }
+            });
 
-                </html>
+            const container = document.getElementById('insight-content');
+            if (lowest && minScore < 70) {
+                container.innerHTML = `
+                    <p class="font-semibold text-slate-900 dark:text-white mb-1">⚠️ Focus: ${lowest.title}</p>
+                    <p>Your score (${minScore}%) suggests a review is needed.</p>
+                    <a href="/bible/${lowest.id}" class="text-purple-600 hover:underline mt-1 block font-medium">Review Now</a>
+                `;
+            } else if (userState.xp > 500) {
+                container.innerHTML = `
+                    <p class="font-semibold text-slate-900 dark:text-white mb-1">🚀 You're flying!</p>
+                    <p>Great momentum. Keep pushing through the challenges.</p>
+                `;
+            } else {
+                container.innerHTML = `
+                    <p class="text-slate-600 dark:text-slate-400">Complete more quizzes to generate personalized insights.</p>
+                `;
+            }
+        }
+
+        // --- INIT ---
+        render();
+
+        // --- THEME ---
+        const html = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        toggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+    </script>
+</body>
+
+</html>
