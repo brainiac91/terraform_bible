@@ -24,6 +24,25 @@ from routers.bible import CHAPTERS
 async def god_mode(request: Request):
     return templates.TemplateResponse("god_mode.html", {"request": request})
 
+@app.get("/arena", response_class=HTMLResponse)
+async def arena(request: Request):
+    """Global Knowledge Arena — aggregates all quiz questions across chapters."""
+    pool = []
+    for ch in CHAPTERS:
+        for q in ch.get("quiz", []):
+            pool.append({
+                "q": q["q"],
+                "options": q["options"],
+                "a": q["a"],
+                "source_title": ch["title"],
+                "source_id": ch["id"],
+            })
+    return templates.TemplateResponse("global_test.html", {
+        "request": request,
+        "questions": pool,
+        "total": len(pool),
+    })
+
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {

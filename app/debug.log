@@ -343,3 +343,297 @@ jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'else'.
 2025-11-20 10:53:25,397 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
 2025-11-20 10:53:25,398 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
 2025-11-20 10:53:25,399 INFO Markdown conversion successful
+2026-04-02 13:00:54,209 INFO Requesting chapter: 01_intro
+2026-04-02 13:00:54,210 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 13:00:54,252 INFO File read successfully. Length: 2933
+2026-04-02 13:00:54,267 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:00:54,272 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:00:54,275 INFO Markdown conversion successful
+2026-04-02 13:06:37,452 INFO Requesting chapter: 01_intro
+2026-04-02 13:06:37,452 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 13:06:37,457 INFO File read successfully. Length: 2933
+2026-04-02 13:06:37,463 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:06:37,463 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:06:37,465 INFO Markdown conversion successful
+2026-04-02 13:08:21,664 INFO Requesting chapter: 02_workflow
+2026-04-02 13:08:21,665 INFO Looking for file at: /app/content/chapters/02_workflow.md
+2026-04-02 13:08:21,668 INFO File read successfully. Length: 2385
+2026-04-02 13:08:21,668 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:08:21,669 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:08:21,670 INFO Markdown conversion successful
+2026-04-02 13:09:42,607 INFO Requesting chapter: 03_state
+2026-04-02 13:09:42,614 INFO Looking for file at: /app/content/chapters/03_state.md
+2026-04-02 13:09:42,664 INFO File read successfully. Length: 2288
+2026-04-02 13:09:42,666 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:09:42,668 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:09:42,671 INFO Markdown conversion successful
+2026-04-02 13:11:46,485 INFO Requesting chapter: 04_variables_outputs
+2026-04-02 13:11:46,486 INFO Looking for file at: /app/content/chapters/04_variables_outputs.md
+2026-04-02 13:11:46,505 INFO File read successfully. Length: 1766
+2026-04-02 13:11:46,506 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:11:46,506 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:11:46,507 INFO Markdown conversion successful
+2026-04-02 13:13:17,162 INFO Requesting chapter: 05_modules
+2026-04-02 13:13:17,164 INFO Looking for file at: /app/content/chapters/05_modules.md
+2026-04-02 13:13:17,234 INFO File read successfully. Length: 1655
+2026-04-02 13:13:17,236 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:13:17,239 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:13:17,240 INFO Markdown conversion successful
+2026-04-02 13:13:40,718 INFO Requesting chapter: 06_advanced_hcl
+2026-04-02 13:13:40,718 INFO Looking for file at: /app/content/chapters/06_advanced_hcl.md
+2026-04-02 13:13:40,724 INFO File read successfully. Length: 1557
+2026-04-02 13:13:40,725 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:13:40,725 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:13:40,726 INFO Markdown conversion successful
+2026-04-02 13:13:44,347 INFO Requesting chapter: 07_testing_validation
+2026-04-02 13:13:44,348 INFO Looking for file at: /app/content/chapters/07_testing_validation.md
+2026-04-02 13:13:44,355 INFO File read successfully. Length: 1544
+2026-04-02 13:13:44,356 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:13:44,357 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:13:44,358 INFO Markdown conversion successful
+2026-04-02 13:13:47,164 INFO Requesting chapter: 08_production
+2026-04-02 13:13:47,164 INFO Looking for file at: /app/content/chapters/08_production.md
+2026-04-02 13:13:47,170 INFO File read successfully. Length: 1744
+2026-04-02 13:13:47,170 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:13:47,171 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:13:47,172 INFO Markdown conversion successful
+2026-04-02 13:14:41,071 INFO Requesting chapter: 09_security
+2026-04-02 13:14:41,072 INFO Looking for file at: /app/content/chapters/09_security.md
+2026-04-02 13:14:41,096 INFO File read successfully. Length: 2913
+2026-04-02 13:14:41,097 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:14:41,097 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:14:41,099 INFO Markdown conversion successful
+2026-04-02 13:15:50,651 INFO Requesting chapter: 10_ansible_intro
+2026-04-02 13:15:50,652 INFO Looking for file at: /app/content/chapters/10_ansible_intro.md
+2026-04-02 13:15:50,756 INFO File read successfully. Length: 1956
+2026-04-02 13:15:50,798 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:15:50,799 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:15:50,800 INFO Markdown conversion successful
+2026-04-02 13:30:17,429 INFO Requesting chapter: 11_ansible_playbooks
+2026-04-02 13:30:17,432 INFO Looking for file at: /app/content/chapters/11_ansible_playbooks.md
+2026-04-02 13:30:17,471 INFO File read successfully. Length: 2020
+2026-04-02 13:30:17,475 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:30:17,478 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:30:17,481 INFO Markdown conversion successful
+2026-04-02 13:30:48,687 INFO Requesting chapter: 12_ansible_roles_advanced
+2026-04-02 13:30:48,688 INFO Looking for file at: /app/content/chapters/12_ansible_roles_advanced.md
+2026-04-02 13:30:48,694 INFO File read successfully. Length: 1907
+2026-04-02 13:30:48,694 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:30:48,695 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:30:48,696 INFO Markdown conversion successful
+2026-04-02 13:31:05,266 INFO Requesting chapter: 18_advanced_tf
+2026-04-02 13:31:05,267 INFO Looking for file at: /app/content/chapters/18_advanced_tf.md
+2026-04-02 13:31:05,329 INFO File read successfully. Length: 1416
+2026-04-02 13:31:05,332 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:31:05,333 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:31:05,346 INFO Markdown conversion successful
+2026-04-02 13:31:12,231 INFO Requesting chapter: 16_helm_intro
+2026-04-02 13:31:12,232 INFO Looking for file at: /app/content/chapters/16_helm_intro.md
+2026-04-02 13:31:12,239 INFO File read successfully. Length: 1767
+2026-04-02 13:31:12,240 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:31:12,240 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:31:12,241 INFO Markdown conversion successful
+2026-04-02 13:38:07,337 INFO Requesting chapter: 16_helm_intro
+2026-04-02 13:38:07,339 INFO Looking for file at: /app/content/chapters/16_helm_intro.md
+2026-04-02 13:38:07,399 INFO File read successfully. Length: 1767
+2026-04-02 13:38:07,443 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:38:07,444 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:38:07,445 INFO Markdown conversion successful
+2026-04-02 13:40:32,864 INFO Requesting chapter: 12_ansible_roles_advanced
+2026-04-02 13:40:32,865 INFO Looking for file at: /app/content/chapters/12_ansible_roles_advanced.md
+2026-04-02 13:40:32,871 INFO File read successfully. Length: 1907
+2026-04-02 13:40:32,871 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:40:32,872 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:40:32,873 INFO Markdown conversion successful
+2026-04-02 13:45:53,662 INFO Requesting chapter: 12_ansible_roles_advanced
+2026-04-02 13:45:53,664 INFO Looking for file at: /app/content/chapters/12_ansible_roles_advanced.md
+2026-04-02 13:45:53,700 INFO File read successfully. Length: 1907
+2026-04-02 13:45:53,718 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:45:53,739 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:45:53,744 INFO Markdown conversion successful
+2026-04-02 13:46:07,078 INFO Requesting chapter: 08_production
+2026-04-02 13:46:07,079 INFO Looking for file at: /app/content/chapters/08_production.md
+2026-04-02 13:46:07,085 INFO File read successfully. Length: 1744
+2026-04-02 13:46:07,086 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:46:07,086 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:46:07,087 INFO Markdown conversion successful
+2026-04-02 13:48:44,551 INFO Requesting chapter: 01_intro
+2026-04-02 13:48:44,552 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 13:48:44,562 INFO File read successfully. Length: 2933
+2026-04-02 13:48:44,563 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:48:44,564 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:48:44,566 INFO Markdown conversion successful
+2026-04-02 13:49:00,732 INFO Requesting chapter: 09_security
+2026-04-02 13:49:00,733 INFO Looking for file at: /app/content/chapters/09_security.md
+2026-04-02 13:49:00,742 INFO File read successfully. Length: 2913
+2026-04-02 13:49:00,742 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:49:00,743 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:49:00,744 INFO Markdown conversion successful
+2026-04-02 13:49:04,523 INFO Requesting chapter: 10_ansible_intro
+2026-04-02 13:49:04,523 INFO Looking for file at: /app/content/chapters/10_ansible_intro.md
+2026-04-02 13:49:04,530 INFO File read successfully. Length: 1956
+2026-04-02 13:49:04,530 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:49:04,531 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:49:04,532 INFO Markdown conversion successful
+2026-04-02 13:49:37,237 INFO Requesting chapter: 12_ansible_roles_advanced
+2026-04-02 13:49:37,238 INFO Looking for file at: /app/content/chapters/12_ansible_roles_advanced.md
+2026-04-02 13:49:37,245 INFO File read successfully. Length: 1907
+2026-04-02 13:49:37,246 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:49:37,246 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:49:37,248 INFO Markdown conversion successful
+2026-04-02 13:50:09,835 INFO Requesting chapter: 13_k8s_intro
+2026-04-02 13:50:09,836 INFO Looking for file at: /app/content/chapters/13_k8s_intro.md
+2026-04-02 13:50:09,840 INFO File read successfully. Length: 1602
+2026-04-02 13:50:09,841 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:50:09,841 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:50:09,842 INFO Markdown conversion successful
+2026-04-02 13:50:29,064 INFO Requesting chapter: 14_k8s_manifests
+2026-04-02 13:50:29,065 INFO Looking for file at: /app/content/chapters/14_k8s_manifests.md
+2026-04-02 13:50:29,074 INFO File read successfully. Length: 1687
+2026-04-02 13:50:29,075 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:50:29,076 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:50:29,077 INFO Markdown conversion successful
+2026-04-02 13:52:50,758 INFO Requesting chapter: 15_k8s_architecture
+2026-04-02 13:52:50,759 INFO Looking for file at: /app/content/chapters/15_k8s_architecture.md
+2026-04-02 13:52:50,767 INFO File read successfully. Length: 2164
+2026-04-02 13:52:50,767 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:52:50,768 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:52:50,769 INFO Markdown conversion successful
+2026-04-02 13:54:09,676 INFO Requesting chapter: 16_helm_intro
+2026-04-02 13:54:09,677 INFO Looking for file at: /app/content/chapters/16_helm_intro.md
+2026-04-02 13:54:09,719 INFO File read successfully. Length: 1767
+2026-04-02 13:54:09,749 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:54:09,750 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:54:09,754 INFO Markdown conversion successful
+2026-04-02 13:54:28,584 INFO Requesting chapter: 17_helm_charts
+2026-04-02 13:54:28,585 INFO Looking for file at: /app/content/chapters/17_helm_charts.md
+2026-04-02 13:54:28,592 INFO File read successfully. Length: 1964
+2026-04-02 13:54:28,592 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:54:28,592 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:54:28,593 INFO Markdown conversion successful
+2026-04-02 13:56:15,327 INFO Requesting chapter: 18_advanced_tf
+2026-04-02 13:56:15,330 INFO Looking for file at: /app/content/chapters/18_advanced_tf.md
+2026-04-02 13:56:15,333 INFO File read successfully. Length: 1416
+2026-04-02 13:56:15,339 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:56:15,340 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:56:15,341 INFO Markdown conversion successful
+2026-04-02 13:57:05,115 INFO Requesting chapter: 19_advanced_ansible
+2026-04-02 13:57:05,115 INFO Looking for file at: /app/content/chapters/19_advanced_ansible.md
+2026-04-02 13:57:05,123 INFO File read successfully. Length: 1317
+2026-04-02 13:57:05,124 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:57:05,124 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:57:05,125 INFO Markdown conversion successful
+2026-04-02 13:57:43,328 INFO Requesting chapter: 20_advanced_k8s
+2026-04-02 13:57:43,329 INFO Looking for file at: /app/content/chapters/20_advanced_k8s.md
+2026-04-02 13:57:43,338 INFO File read successfully. Length: 1291
+2026-04-02 13:57:43,338 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:57:43,339 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:57:43,340 INFO Markdown conversion successful
+2026-04-02 13:58:15,236 INFO Requesting chapter: 21_interview_tf
+2026-04-02 13:58:15,237 INFO Looking for file at: /app/content/chapters/21_interview_tf.md
+2026-04-02 13:58:15,243 INFO File read successfully. Length: 1591
+2026-04-02 13:58:15,244 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:58:15,244 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:58:15,245 INFO Markdown conversion successful
+2026-04-02 13:58:36,379 INFO Requesting chapter: 22_interview_ansible
+2026-04-02 13:58:36,380 INFO Looking for file at: /app/content/chapters/22_interview_ansible.md
+2026-04-02 13:58:36,387 INFO File read successfully. Length: 1615
+2026-04-02 13:58:36,388 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 13:58:36,388 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 13:58:36,389 INFO Markdown conversion successful
+2026-04-02 14:00:50,489 INFO Requesting chapter: 23_interview_k8s
+2026-04-02 14:00:50,490 INFO Looking for file at: /app/content/chapters/23_interview_k8s.md
+2026-04-02 14:00:50,498 INFO File read successfully. Length: 1762
+2026-04-02 14:00:50,498 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 14:00:50,499 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 14:00:50,500 INFO Markdown conversion successful
+2026-04-02 14:05:16,622 INFO Requesting chapter: 01_intro
+2026-04-02 14:05:16,623 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 14:05:16,634 INFO File read successfully. Length: 2933
+2026-04-02 14:05:16,642 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 14:05:16,643 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 14:05:16,645 INFO Markdown conversion successful
+2026-04-02 14:07:25,227 INFO Requesting chapter: 01_intro
+2026-04-02 14:07:25,229 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 14:07:25,296 INFO File read successfully. Length: 2933
+2026-04-02 14:07:25,299 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 14:07:25,300 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 14:07:25,302 INFO Markdown conversion successful
+2026-04-02 14:48:50,040 INFO Requesting chapter: 01_intro
+2026-04-02 14:48:50,041 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 14:48:50,049 INFO File read successfully. Length: 2933
+2026-04-02 14:48:50,056 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 14:48:50,056 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 14:48:50,058 INFO Markdown conversion successful
+2026-04-02 15:08:57,527 INFO Requesting chapter: 01_intro
+2026-04-02 15:08:57,527 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 15:08:57,532 INFO File read successfully. Length: 2933
+2026-04-02 15:08:57,533 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 15:08:57,533 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 15:08:57,535 INFO Markdown conversion successful
+2026-04-02 15:21:21,230 INFO Requesting chapter: 01_intro
+2026-04-02 15:21:21,231 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 15:21:21,264 INFO File read successfully. Length: 2933
+2026-04-02 15:21:21,273 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 15:21:21,274 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 15:21:21,278 INFO Markdown conversion successful
+2026-04-02 15:21:48,789 INFO Requesting chapter: 01_intro
+2026-04-02 15:21:48,790 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 15:21:48,825 INFO File read successfully. Length: 2933
+2026-04-02 15:21:48,826 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 15:21:48,826 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 15:21:48,828 INFO Markdown conversion successful
+2026-04-02 15:22:20,592 INFO Requesting chapter: 09_security
+2026-04-02 15:22:20,593 INFO Looking for file at: /app/content/chapters/09_security.md
+2026-04-02 15:22:20,616 INFO File read successfully. Length: 2913
+2026-04-02 15:22:20,617 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 15:22:20,617 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 15:22:20,619 INFO Markdown conversion successful
+2026-04-02 15:30:32,580 INFO Requesting chapter: 01_intro
+2026-04-02 15:30:32,580 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-02 15:30:32,590 INFO File read successfully. Length: 2933
+2026-04-02 15:30:32,615 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 15:30:32,620 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 15:30:32,637 INFO Markdown conversion successful
+2026-04-02 15:46:21,070 INFO Requesting chapter: 03_state
+2026-04-02 15:46:21,071 INFO Looking for file at: /app/content/chapters/03_state.md
+2026-04-02 15:46:21,075 INFO File read successfully. Length: 2288
+2026-04-02 15:46:21,076 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 15:46:21,077 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 15:46:21,079 INFO Markdown conversion successful
+2026-04-02 15:46:55,932 INFO Requesting chapter: 04_variables_outputs
+2026-04-02 15:46:55,933 INFO Looking for file at: /app/content/chapters/04_variables_outputs.md
+2026-04-02 15:46:55,939 INFO File read successfully. Length: 1766
+2026-04-02 15:46:55,940 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-02 15:46:55,940 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-02 15:46:55,941 INFO Markdown conversion successful
+2026-04-03 20:44:07,456 INFO Requesting chapter: 01_intro
+2026-04-03 20:44:07,457 INFO Looking for file at: /app/content/chapters/01_intro.md
+2026-04-03 20:44:07,464 INFO File read successfully. Length: 2933
+2026-04-03 20:44:07,473 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-03 20:44:07,474 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-03 20:44:07,476 INFO Markdown conversion successful
+2026-04-06 09:29:40,018 INFO Requesting chapter: 23_interview_k8s
+2026-04-06 09:29:40,018 INFO Looking for file at: /app/content/chapters/23_interview_k8s.md
+2026-04-06 09:29:40,025 INFO File read successfully. Length: 1762
+2026-04-06 09:29:40,035 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-06 09:29:40,036 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-06 09:29:40,038 INFO Markdown conversion successful
+2026-04-06 09:29:43,000 INFO Requesting chapter: 24_cicd_pipelines
+2026-04-06 09:29:43,000 INFO Looking for file at: /app/content/chapters/24_cicd_pipelines.md
+2026-04-06 09:29:43,002 WARNING File not found: /app/content/chapters/24_cicd_pipelines.md
+2026-04-06 09:29:43,003 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-06 09:29:43,003 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-06 09:29:43,004 INFO Markdown conversion successful
+2026-04-06 09:36:19,204 INFO Requesting chapter: 23_interview_k8s
+2026-04-06 09:36:19,205 INFO Looking for file at: /app/content/chapters/23_interview_k8s.md
+2026-04-06 09:36:19,210 INFO File read successfully. Length: 1762
+2026-04-06 09:36:19,217 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-06 09:36:19,218 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-06 09:36:19,219 INFO Markdown conversion successful
+2026-04-06 09:36:21,324 INFO Requesting chapter: 24_cicd_pipelines
+2026-04-06 09:36:21,324 INFO Looking for file at: /app/content/chapters/24_cicd_pipelines.md
+2026-04-06 09:36:21,329 INFO File read successfully. Length: 3492
+2026-04-06 09:36:21,330 DEBUG Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2026-04-06 09:36:21,330 DEBUG Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2026-04-06 09:36:21,332 INFO Markdown conversion successful
