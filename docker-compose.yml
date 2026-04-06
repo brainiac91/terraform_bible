@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+      - /var/run/docker.sock:/var/run/docker.sock # Allow app to inspect Docker
+      - ./terraform:/app/terraform_data # Mount terraform dir to read state
+    environment:
+      - ENVIRONMENT=development
+    restart: always

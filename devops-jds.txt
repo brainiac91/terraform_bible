@@ -1,0 +1,774 @@
+About the job
+ALTEN Romania is part of the ALTEN Group, Leader in IT and Engineering Consulting. We develop innovative and durable technical solutions that fulfill the needs of our local and international partners.
+ 
+A typical day might include the following:
+
+Write and maintain scripts in Python, Bash, Shell, or other common scripting languages.
+Configure and manage networks using TCP/IP concepts and basic network programming.
+Create and manage VPCs and VPN connections in public cloud environments.
+Configure and ensure proper operation of routing, firewalls, load balancers, and private connectivity.
+Work with public cloud services (AWS, GCP, Azure) across networking, security, and operations.
+Collaborate effectively with cross‑functional teams and maintain a strong team‑first mindset.
+Monitor and improve cloud infrastructure to ensure performance, security, and high availability.
+
+
+To ensure success in this role, you need the following experience and skills:
+
+Scripting skills in Python, Perl, Bash, Shell or another common languages.
+Understand TCP/IP and network programming, can deploy VPCs & VPNs to public clouds. 
+Knowledge of Routing, Firewalls, Load Balancing and Private Connectivity technologies. 
+Understanding of public cloud services and global infrastructure, load balancing, networking, security and operations.
+Team-first outlook including building great working relationships with peers across functions.
+Knowledge of AWS, GCP and Azure.
+
+
+Preferred skills 
+
+Advanced networking knowledge with Cisco/PA Networks, routing and firewalls;
+Experience and understanding of SAP Enterprise business practices;
+Cloud Management, Cloud Analytics Experience, CI/CD stacks;
+Combination Experience with Git, Jenkins, Confluence, JIRA, ServiceNow, Docker, Kubernetes, Terraform, Splunk, PagerDuty Work Experience;
+ 5+ Years’ Enterprise Cloud Engineering and Operations at scale;
+ 5+ Years’ Cloud Networking;
+ 5+ Years’ with Continuous Integration and associated technologies;
+ 5+ Years’ with at least three of GCP/AWS/Azure experience;
+ 5+ Years’ experience in cloud operations.
+ 
+ 
+YOUR DAY-TO-DAY
+
+Secure CI/CD: Build and maintain secure CI/CD pipelines (shift-left security), integrate security checks, enforce quality gates, and reduce pipeline friction.
+
+
+Security Automation: Automate repetitive security tasks (resource deployment, scanning, validation, reporting, policy enforcement) using scripts and tooling.
+
+
+Infrastructure-as-Code (IaC): Support secure-by-default IaC practices; integrate IaC scanning and policy-as-code into delivery workflows.
+
+
+Container Security: Improve container hardening, image scanning, runtime controls, and Kubernetes security posture (RBAC, network policies, secrets, admission controls).
+
+
+K8S Administration: Operate K8S clusters end-to-end – upgrades, node pools, autoscaling, CNI/networking, private clusters, add-ons, backup/restore considerations, and perform day-2 troubleshooting.
+
+
+K8S Security Hardening: Enforce RBAC, Pod Security Standards (Azure Policy, Kyverno, Gatekeeper) admission control, network policies, secure ingress/egress patterns, and secure service meshes (Istio).
+
+
+Network Security by Design: Support secure patterns like private endpoints, VNet integration, restricted outbound, and controlled ingress, network security perimeters; partner with infra/networking teams on segmentation.
+
+
+Monitoring & Response Readiness: Support security logging/monitoring integrations and help
+improve alerting, visibility, and incident response workflows.
+
+
+YOUR SKILLS AND KNOWLEDGE
+
+
+
+- Bachelor’s degree in computer science, Information Security, or a related field (master’s preferred).
+- 2+ years’ experience in DevOps/SRE/Platform Engineering and/or Security Engineering, with proven delivery in CI/CD environments.
+- Azure-first cloud knowledge with strong focus on private networking, IAM, logging/monitoring, and encryption (AWS/GCP exposure is a plus), Logic Apps/Function Apps.
+- Entra ID & Hybrid Identity (Entra + AD): tenants, app registrations, enterprise apps, service principals, federated credentials, managed identities, AD DS fundamentals, AAD Connect/Cloud Sync basics, group/role design, hybrid access patterns.
+- Strong knowledge of authentication/authorization concepts and protocols: OAuth2, OIDC, SAML, JWT.
+
+- Azure DevOps (ADO) CI/CD security: building and securing YAML pipelines, service connections,
+approvals/gates, and Git-based workflows; ability to implement credential federation and secretless pipelines.
+- Infrastructure as Code: Terraform (preferred) and/or Ansible; modules, state, environment separation; IaC security scanning (Snyk, Checkov, tfsec).
+- Kubernetes/AKS production administration: CNI (Calico+Flannel), upgrades, node pools, autoscaling, cluster/network troubleshooting, namespaces, quotas/limits, ingress (MetalLB, Traefik),
+network policies, workload identity.
+- Scripting/automation: Python, Bash, PowerShell, Go (or similar) with an automation mindset.
+- Git fluency: branching strategies, PR workflows, resolving conflicts, semantic versioning basics.
+- Ability to define and roll out standards (“golden pipelines”, Terraform module standards, cluster
+baseline controls); clear documentation/runbooks and internal enablement.
+- Ownership mindset: drive remediation to closure, measurable improvements, continuous optimization.
+- Nice to have: Security+, relevant Azure certs (AZ-400, AZ-104, AZ-500, SC-300), CKA/CKS, HCP
+Terraform Associate.
+
+
+ Role 
+
+We are seeking a skilled DevOps Platform Engineer with a strong background in RPA infrastructure and deployment automation. This role is central to maintaining and scaling our RPA platforms, ensuring reliable bot operations through robust CI/CD pipelines, version control, and environment management.
+
+Responsibilities
+
+ Manage and maintain RPA environments, including development, test, and production setups. 
+ Own and optimize deployment processes, ensuring smooth and secure bot releases. 
+ Implement and maintain version control systems for automation assets and configurations. 
+ Schedule and monitor bot executions, ensuring alignment with business SLAs. 
+ Design and support CI/CD pipelines for RPA solutions, integrating with enterprise DevOps tools. 
+ Collaborate with developers, operations, and infrastructure teams to ensure platform stability and scalability. 
+ Troubleshoot platform issues and drive root cause analysis for environment-related incidents 
+ Required 
+ 6+ years of experience in DevOps or platform engineering, with at least 3 years in RPA environments. 
+ Hands-on experience with Blue Prism or other RPA platforms. 
+ Proficiency in CI/CD tools (e.g., Jenkins, GitLab, Azure DevOps). 
+ Strong knowledge of version control systems (e.g., Git) and scripting languages (e.g., PowerShell, Python). 
+ Experience with bot scheduling, monitoring, and orchestration. 
+ Familiarity with cloud platforms (Azure, AWS, GCP) and containerization (Docker, Kubernetes) is a plus. 
+ Strong problem-solving and communication skills. 
+
+Preferred
+
+ Exposure to telecom, media, or technology domains. 
+ Experience with infrastructure as code and automated provisioning tools. 
+ Knowledge of ITIL practices and operational governance
+ 
+Senior DevOps Engineer
+
+Reporting to the Senior DevOps Manager, the Senior DevOps Engineer would join a team of experts focusing on Infrastructure as Code (IaC) Development, Automation, Innovations using DevOps practices, processes and frameworks. Should be having strong foundation in tooling, automation, and collaborative DevOps practices. You will be responsible for administering and optimizing our Azure DevOps and GitHub environments, enhancing CI/CD pipelines, and ensuring seamless integrations various tools used in Application Development, Quality and Security checks.
+
+Responsibilities And Deliverables
+
+Your deliverables as a Senior DevOps Engineer will include, but are not limited to, the following:
+
+Infrastructure as Code (IaC) Development & Management: 
+Design, develop, and maintain reusable Terraform modules for provisioning and configuring cloud resources across Azure environment 
+Implement and manage IaC pipelines for automated infrastructure deployment, updates, and decommissioning 
+Ensure IaC practices adhere to security policies, compliance requirements, and industry best practices 
+Automation & CI/CD: 
+Develop and enhance CI/CD pipelines using GitHub Actions for both infrastructure and application deployments, integrating security best practices 
+Automate routine operational tasks, security checks, and compliance reporting 
+Integrate and administer Test automation and Application Security tools for continuous code quality checks 
+Involve, design, and establish a Source Code Management framework in GitHub with an effective branching strategy. 
+Work with team members in understanding various Student Lending Applications spectrum. 
+Modify existing pipelines and write automation scripts for building, deploying, and maintaining applications. 
+Create, Implement, and maintain automated CI/CD Environments for various legacy applications. 
+Enhance and support existing automation scripts and Plan and upgrade all automation related tools as required 
+Oversee all builds and deployments of releases to Non-Production and Production environments. 
+Provide support during Production Releases and as well as all interim environmental releases. 
+Assist with the identification of environmental issues and provide corrective actions. 
+Proactively identify procedures to streamline and automate the delivery process. 
+Research and implement new tools for the development and execution of Test Automation Scripts. 
+Interact with Operation Teams to build and manage the artifacts for Production deployment. 
+Document all procedures related to the processes and tools developed. 
+Identify, establish, and manage Proof of Concept (POC) environments and report on design outcomes. 
+Monitoring health and performance of Development, QA and Performance environments and execute relevant maintenance tasks or fixes. 
+Enforce and maintain Environment and Application Security based on established policies and procedures. 
+
+Required Experience
+
+Bachelor's degree in computer science, Engineering or a related field and proven experience in software development, systems engineering/design. 
+Demonstrable practical experience in DevOps, CI/CD, Automation Build and Delivery Operations. 
+Extensive experience with scripting languages, PowerShell, Batch, Shell 
+Extensive experience with CI/CD Tools in Azure DevOps (VSTS). 
+Experience with Cloud Delivery Methodologies using Microsoft Azure Products and Technologies. 
+Experience with a variety of relevant technologies, including Microsoft, .Net, .Net Core, HTML5, PowerShell, JavaScript, CSS, Java, C#, XML, REST, SQL/NoSQL, Angular, NodeJS, Redis. 
+Experience in automating build and release of changes for InRule Rules Engine, Microsoft CRM Dynamics and Microsoft Power BI is a plus 
+Involve, design, and establish a Source Code Management framework in GitHub with an effective branching strategy. 
+Work with team members in understanding various Student Lending Applications spectrum. 
+Modify existing pipelines and write automation scripts for building, deploying, and maintaining applications. 
+Create, Implement, and maintain automated CI/CD Environments for various legacy applications. 
+Enhance and support existing automation scripts and Plan and upgrade all automation related tools as required 
+Oversee all builds and deployments of releases to Non-Production and Production environments. 
+Provide support during Production Releases and as well as all interim environmental releases. 
+Assist with the identification of environmental issues and provide corrective actions. 
+Proactively identify procedures to streamline and automate the delivery process. 
+Research and implement new tools for the development and execution of Test Automation Scripts. 
+Interact with Operation Teams to build and manage the artifacts for Production deployment. 
+Document all procedures related to the processes and tools developed. 
+Identify, establish, and manage Proof of Concept (POC) environments and report on design outcomes. 
+Monitoring health and performance of Development, QA and Performance environments and execute relevant maintenance tasks or fixes. 
+Enforce and maintain Environment and Application Security based on established policies and procedures. 
+
+
+
+What you will do:
+
+Design a governed Azure DevOps platform including pipelines (YAML), repos, artifacts, agent pools, and permission models.
+Build enterprise-ready architecture aligned with E.ON’s scale, security posture, and organizational structure.
+Implement multi‑tenant isolation, RBAC boundaries, and controlled access patterns.
+Translate enterprise security requirements into platform guardrails and CI/CD governance.
+Integrate SAST, SCA, DAST, secret scanning into CI/CD with enforceable policy gates.
+Automate onboarding, provisioning, and standardization using IaC templates and reusable components.
+Define and execute phased migration plans with pilots, coexistence, and rollback strategies.
+Create clear architecture documentation, operational guidelines, and onboarding materials for teams.
+Provide reference implementations to accelerate adoption across development teams.
+Support our client's teams with enablement sessions and ongoing platform best‑practice guidance.
+
+
+What you need to succeed:
+
+Azure DevOps (ADO) – Expert-level knowledge of pipelines (YAML), repos, artifacts, agent pools, permissions, and enterprise governance design.
+Enterprise Platform Architecture – Proven experience designing and building environments for large enterprise customers.
+Multi-tenancy – Strong understanding of isolation models, RBAC boundaries, shared services, and audit requirements.
+Security & Compliance by Design – Ability to translate enterprise security requirements into platform guardrails and CI/CD governance.
+SDLC Security Understanding – Strong knowledge of integrating SAST, SCA, secret scanning, and DAST into CI/CD patterns and policy gates.
+Automation / IaC Mindset – Strong capability to automate provisioning, onboarding, and standardization (templates, scripts, IaC).
+Migration Approaches – Experience defining and executing phased migration strategies with pilots, coexistence, and rollback planning.
+Documentation & Enablement – Produce clear architecture docs, onboarding guides, and reference implementations for teams.
+
+Your day to day
+
+Even If You’ll Start Your Day From The Comfort Of Your Home Or Drink Your Morning Coffee In Our Office’s Garden, Your Day Will Be Quite Similar When Comes To Tasks
+
+Responsibility for the full the stack/platform on Development, Test, Acceptance and Production environments. You automate relentlessly: Regression Testing (Functional, Performance, Security), Deployments, and Operations (Data Center failover, Backups/Restore, Security Monitoring, full stack monitoring);
+You take ownership of life cycle management of all components (O.S., Middleware, Database) as well as security (interface encryption certificates, user access, vulnerability analysis and patching);
+As part of the Squad you work in an Agile/Scrum way, on the backlog prioritized by a Technical Product Owner, and you demo your features to the Capability Squads that you work with;
+Improve application monitoring using the correct and agreed event alerts (Grafana, Prometheus, Log4all);
+Support in performing High Availability and Disaster Recovery tests;
+Implement and work with the latest tooling with a strong focus on performance, stability and security;
+Find opportunities to automate the testing of existing features, performance and security as well as the automation of deployments, monitoring, and more;
+Understand the root cause for a problem or existing gap for an enhancement and propose a viable solution for it;
+Take ownership of issues and improvements, seeing them through to completion, providing comprehensive handover as required;
+You assist with technical specifications for change requests and user stories;
+Analyze requirements and define their applicability inside the technical environment;
+Work on technical improvements (automation, monitoring, setting up environments, Azure DevOps pipelines);
+Continuous deployment and delivery using Azure DevOps;
+IT Risk & security controls need to be put in place and accurately documented, for this you will need to get familiar and keep up to date with the ING Information Security Management Policy;
+Comply with all internal guidelines, timely completion all mandatory training and always safeguard the integrity and reputation of ING;
+Occasional travel abroad (Amsterdam).
+
+What You’ll Bring To The Team
+
+5+ years’ experience in a DevOps role;
+Hands on experience with at least one automation tool (Ansible, Chef, Salt, Terraform, etc);
+Cloud Platforms: Experience with Azure DevOPS or Google Cloud;
+Monitoring & Logging: Familiarity with Prometheus, Grafana, ELK stack, or similar tools;
+You are highly knowledgeable on Red Hat operating systems and networking. Solid experience in clustered environments, managing servers and troubleshooting;
+Experience with CI/CD tooling (such as: Azure Devops, Git, Sonar, Checkmarx);
+Experience with at least one virtualization - and/or containerization technologies; VMWare, Openstack, Docker, Kubernetes, Openshift;
+Ability to automate release processes and operations using e.g. Python, Shell, Ansible;
+Passion for technology, drive for continuous improvement and using your creativity to achieve this;
+Strong analytical skills, proactivity and willingness to share knowledge with others;
+Ability and agility to organize and motivate others to improve themselves;
+Very good soft skills (communicative, friendly, curious, etc);
+General knowledge about REST APIs.
+
+Nice To Have
+
+Basic knowledge about the Springboot framework;
+Low latency infrastructural stack knowledge;
+Security and IT Risk (SOX, vulnerability management);
+Oracle databases;
+Foreign languages: English (advanced).
+
+
+
+What You'll DoAs a Senior DevOps Engineer at Lateral, you will ensure the systems we build are scalable, secure, observable, and resilient, while enabling our engineering teams to move quickly with confidence. You’ll combine reliability engineering, automation, cloud architecture, and strong judgment to keep our clients’ environments healthy and safe.
+
+You will:
+
+Take ownership of cloud infrastructure across Azure and AWS - with responsibility for uptime, performance, security, and scalability.
+Build Infrastructure as Code (IaC) using tools like Terraform, Pulumi, CloudFormation, ARM/Bicep, or similar.
+Design and maintain CI/CD pipelines enabling safe, fast, and repeatable deployments.
+Implement SRE best practices: monitoring, alerting, observability, incident response, root-cause analysis, and ongoing reliability improvements.
+Automate operational tasks to reduce manual work, improve reliability, and increase engineering velocity.
+Perform environment hardening, secret management, identity and access management, network configuration, and secure cloud patterns.
+Proactively identify risks, gaps, and bottlenecks and fix them before they become incidents.
+Collaborate with engineering teams to architect cloud solutions that balance reliability, speed, and cost efficiency.
+Participate in on-call rotations (sensible, fair, and well-scoped) as needed for reliability-sensitive projects.
+Communicate clearly with internal stakeholders and occasionally with clients, explaining technical decisions, tradeoffs, and mitigation plans.
+
+Whatever the challenge, you’ll be building software that changes lives and moves industries forward.
+
+We measure success through:
+
+Evaluating results (what you’ve shipped)
+Quality and reliability of your code.
+Consistency in delivery.
+Feedback from peers and leads.
+Your ability to work independently and unblock others.
+
+What We’re Looking ForTeam members who are both highly technical and care deeply about their craft and how the work gets done. We’re looking for a senior, trusted operator with deep cloud experience and an SRE mindset.
+
+You must bring:
+
+Proven experience in DevOps or SRE roles supporting modern cloud-native systems at scale.
+Strong cloud expertise - especially with AWS and Azure; cloud certifications strongly preferred (AWS Solutions Architect, AWS DevOps Engineer, Azure DevOps Engineer Expert, Azure Solutions Architect, etc.).
+Strong Infrastructure as Code experience (Terraform ideal; Pulumi/CloudFormation/ARM also welcome).
+Expertise in building and owning CI/CD pipelines (GitHub Actions, GitLab CI, Azure DevOps, Jenkins, etc.).
+Experience implementing and operating monitoring, logging, metrics, alerting, and full observability stacks (Prometheus, Grafana, CloudWatch, Azure Monitor, ELK/EFK, Datadog, etc.).
+Strong understanding of security, networking, identity, container orchestration, and cloud architecture.
+A reliability-first mindset: eliminate toil, automate everything possible, design for failure, measure everything.
+Excellent communication skills: you can explain risks, incidents, tradeoffs, and architecture clearly to both technical and non-technical people.
+High integrity and sound judgment: you will be trusted deeply; reliability and discretion matter more than any tool or technology.
+
+Why You’ll Love Working Here
+
+Real Impact: You’ll work on meaningful products that make a measurable difference - from healthcare and commerce to sustainability and next-gen tech.
+Remote-First, Office Friendly: Work from wherever you’re most productive - whether that’s your home, a co-working space, or one of our offices. We’re a remote-first company, but if you’re near an office, you’re welcome to drop in, collaborate in person, or work onsite regularly.
+
+Responsibilities:
+
+
+
+Core Competency Areas & Representative Technologies:
+
+
+
+Cloud architecture and orchestration;
+You will design, deploy, and scale workloads across public and hybrid clouds (primarily GCP and AWS) using Kubernetes as the control plane and GitOps tooling such as Argo CD to keep desired and running states in sync;
+Continuous delivery and automation;
+Expect to own the build-and-release workflow, crafting friction-free CI/CD pipelines with Tekton, Bamboo, GitHub so that application and infrastructure code move through the same tested, reviewable path to production;
+Infrastructure as Code and configuration management;
+Everything should be declaratively defined and automatically enforced. We rely on Terraform-style provisioning coupled with configuration engines like Ansible (via AWX) and Puppet to eliminate drift and speed recovery;
+Linux and package lifecycle;
+A solid grasp of Ubuntu internals is essential. You will harden, patch, and distribute custom packages, using the dpkg/apt toolchain and repositories managed by aptly and reprepro to guarantee reproducible builds and secure sources;
+Observability and telemetry;
+You will instrument systems end-to-end: collect metrics with Telegraf and InfluxDB, ship logs with Filebeat and Logstash, and surface insights through Grafana, Kibana and Opensearch Dashboards so that teams can detect anomalies early and troubleshoot confidently;
+Data stores and messaging;
+Operating stateful services is part of the job. We back our platforms with MongoDB and Redis for data, RabbitMQ for messaging, and Elasticsearch & Opensearch for fast, flexible search and analytics;
+Collaboration and agile delivery;
+You’ll help teams track and improve their work using Jira for issue management and Bitbucket for version control, ensuring transparency and alignment across engineering and operations.
+
+
+
+
+Required Skills & Experience:
+
+
+
+Proven track record designing and operating complex, mission-critical platforms at scale;
+Hands-on depth in at least one major cloud provider plus strong Kubernetes expertise;
+Demonstrable leadership in establishing CI/CD, GitOps, and IaC practices across teams;
+Solid Linux administration, packaging, and security-hardening know-how;
+Experience instrumenting systems for metrics, logs, tracing, and alerting;
+Excellent communication skills and a coaching mindset; comfortable interfacing with engineers, product owners, and executives alike.
+
+
+Missions
+
+Understand functional flows of platform managed and being able to support customer on onboarding or support phase
+Harden platforms before they go live by reviewing their design and implementation, tuning configuration as well as developing auxiliary tools and necessary monitoring of critical health indicators
+Maintain platforms after go live by measuring and monitoring their availability, performance and overall system health
+Recover platforms during production incidents to meet targeted SLA; perform detailed root cause analysis to prevent regressions. Business hours work model plus additional on calls possible.
+Proactively seek improvements of non-functional requirements; cooperate with development teams to improve operational aspects of platforms under your responsibility
+Validate readiness and maturity of new rollouts through development, execution and verification of automated smoke test suites
+Provide technical expertise on Docaposte products and support processes to internal and external customers
+
+
+Profile
+
+
+
+Education and Experience
+
+MS Computer Engineering
+First experience of 5 years in SRE position or integrator role in a software company
+
+
+Technical Skills
+
+Required
+Good knowledge of Unix ecosystem and tools
+Experience with Docker/Kubernetes
+Bash scripting and automation skills
+Understanding of networking topology and components of distributed web applications
+Working experience with monitoring tools: Grafana / Elasticsearch
+Familiar with CI/CD
+Knowledge about REST API and testing tools: Postman
+Nice to have
+Good understanding of security and key encryption mechanisms
+Experience with Public Cloud tools and deployments (AWS, Azure)
+Understanding of SQL database design and operations; SQL syntax
+
+
+What your week might look like
+
+
+
+You pushed a Terraform change that provisioned a new environment — and it worked on the first try. Almost.
+You helped debug a Kubernetes deployment that was silently failing, and figured out why
+You wrote a Python script that replaced something someone was doing manually every week
+You got paged for an alert, investigated it, and closed it — with help, but you closed it
+You asked a question in the team channel that nobody had thought to ask before
+
+
+You'll do well here if
+
+
+
+You're comfortable in a Linux terminal and not afraid of a blank screen
+You know the basics of AWS, Git, Docker, and scripting — not perfectly, but enough to get started
+You've touched Terraform or any IaC tool at least once
+You learn by doing, and you're not too proud to ask for help
+
+
+
+
+About The Role
+
+As a Senior DevOps Engineer at Reconomy Group, you will be responsible for designing, implementing, and maintaining cloud infrastructure across Azure and AWS platforms. You will work collaboratively with development teams to automate deployment processes, implement infrastructure as code, and ensure the reliability, security, and scalability of our systems. Your role is critical in bridging the gap between development and operations, promoting a DevOps culture throughout the organization.
+
+Deploy and manage Azure and AWS infrastructure components such as Virtual Machines, Virtual Networks and Serverless databases. 
+
+Design and implement scalable, secure cloud architectures 
+
+Develop and maintain automated CI/CD pipelines using tools like Azure DevOps and GitHub Actions. 
+
+Streamline deployment processes to improve efficiency and reliability 
+
+Manage configuration and infrastructure as code using tools like Bicep and Terraform.
+
+Implement version control for infrastructure configurations. 
+
+Extend existing monitoring and alerting solutions using Azure Monitor, CloudWatch, and other relevant tools. 
+
+Ensure system performance and availability through proactive monitoring. 
+
+Deploy security best practices and standards for Azure and AWS resources, ensuring data protection and compliance. 
+
+Perform security audits and implement improvements. 
+
+Participate in on-call rotations to provide timely incident response and issue resolution.
+
+Troubleshoot and resolve complex infrastructure issues. 
+
+Work with cross-functional teams, including developers, QA engineers, and operations teams, to drive a culture of collaboration. Provide technical guidance and support to other teams. 
+
+Essential
+
+What we need from you
+
+Strong experience working with Azure Infrastructure and services. 
+
+Linux/Ubuntu admin experience. 
+
+Demonstrable skills in automation and scripting 
+
+Proficiency with cloud platforms (Azure, AWS) Infrastructure as Code tools (Bicep, Terraform) CI/CD pipeline implementation 
+
+Linux system administration Scripting languages (PowerShell, Bash, Python) 
+
+Relevant technical education or equivalent experience 
+
+Good communication and teamwork skills A
+
+Ability to participate in on-call rotations 
+
+Ability to work in a hybrid environment (2 days office, 3 days remote)
+
+Desirable
+
+Experience working with AWS Infrastructure and services 
+
+Experience with container orchestration (Kubernetes) Multi-cloud environment experience
+
+Experience with microservices architecture 
+
+Docker, Kubernetes, and Helm App Gateway, Azure Front Door, Load Balancer AWS EC2, RDS, S3, VPC Azure Service Bus, Azure Storage, Azure SQL, Azure Cosmos DB Apache and Nginx 
+
+Degree in Computer Science, IT, or related field Cloud certifications (Azure, AWS) DevOps certifications 
+
+Willingness to continuously learn new technologies Interest in sustainability and circular economy 
+
+
+
+You will be:
+
+building and supporting the tools, processes and infrastructure empowering the faster delivery and scaling of software iterations (ideally with greater quality and the necessary operational insight),
+ensuring availability, reliability and scalability of application infrastructure,
+building and supporting continuous integration/delivery and release tools,
+ensuring the right metrics are collected and monitored.
+
+
+Your profile:
+
+smart and tech-savvy engineer with 5+ years of experience working with DevOps practices and Continuous Delivery,
+practical knowledge of AWS services, infrastructure and networking,
+solid experience with Kubernetes (ideally EKS on AWS) and container orchestration,
+Python knowledge,
+hands-on with GitOps practices, preferably with ArgoCD,
+strong skills in Terraform and Helm,
+proficiency in Bash and PowerShell scripting,
+experience with CI/CD pipelines and tooling (GitLab CI/CD, GitHub Actions, or similar),
+experience with monitoring, observability, and logging tools, such as Prometheus, Grafana, AppDynamics, and OpenSearch,
+security awareness (OWASP, encryption, secrets management),
+very communicative and collaborative, with a strong sense of ownership,
+upper intermediate/advanced English (B2/C1).
+
+
+Work from the European Union region and a work permit are required. 
+
+
+
+Nice to have:
+
+AWS certifications such as Solutions Architect or Platform Engineer,
+familiarity with FluxCD,
+experience with Rancher,
+knowledge of Keycloak.
+
+
+The main responsibilities of the position include:
+
+Honor and practice the Resiliency pillar of the Well Architected Framework in all tasks and responsibilities
+Conduct Chaos Engineering experiments and relevant exercises to improve resiliency and fault-tolerance
+Research workloads for migrating to the cloud with minimal disruption and impact
+Monitor cloud migration projects to ensure seamless transitions
+Design, consult, re-platform, and re-factor the observability of current cloud infrastructure
+Coordinate with other IT departments and teams regarding observability for both individual and organizational needs
+Regularly assess cloud deployments for compliance with the company’s standards and best practices
+Investigate and correct areas where observability is lagging
+Stay up to date and provide training on new and current technologies, services, tools, methodologies, and practices
+Occasionally participate in service capacity planning, software performance analysis, and system tuning
+Mentor colleagues in technical skills and knowledge
+Analyze, oversee, and remediate the company’s resiliency
+Participate in on-call support 24/7 based on a rotation schedule
+
+
+Main requirements:
+
+BSc/MSc degree in Computer Science or related field
+5+ years of cloud services experience, with at least 3 years on AWS cloud
+3+ years of experience in SRE or a similar role
+Experience with monitoring, APM, logging, and notification tools
+Familiarity with incident, problem and change management procedures and practices
+Advanced knowledge of SRE practices and methods
+Understanding and practice of Service Levels
+Strong troubleshooting skills and the ability to mentor others
+Extensive experience with Kubernetes and related technologies, services, and ecosystem
+Advanced knowledge of CI/CD, Infrastructure as Code (IaC) concepts and tools, especially HCL Terraform and AWS CloudFormation
+Experience with versioning tools like Git
+Strong organizational and documentation skills
+Exceptional time management and research abilities
+Advanced Linux, networking, and scripting skills
+
+
+The following will be considered an advantage: 
+
+Experience with platforms like Kafka (MSK)
+Experience with RDBMSs, particularly Postgres and MySQL
+Knowledge of scripting languages such as Python or Go
+
+
+
+Job Responsibilities:
+
+ Design and implement scalable, secure, and efficient Azure cloud solutions aligning with the customer"s business objectives and cloud adoption strategy. 
+ Support deploying Azure IaaS, PaaS, and SaaS solutions, ensuring compliance with industry best practices and organizational standards. 
+ Facilitate knowledge transfer and training sessions for customer IT staff and internal team members. 
+ Conduct regular reviews and audits of Azure environments to ensure ongoing operational excellence. 
+ Develop and maintain automation scripts for provisioning (PowerShell, ARM Templates, etc) and configuration management using Terraform, Bicep, Ansible, and Azure DevOps pipelines. 
+ Configure initial landing zones, subscriptions, IAM roles, and resource groups following governance policies. 
+ Manage end-to-end lifecycle of cloud resources (provisioning, scaling, decommissioning). 
+ Administer subscriptions, policies, and resource tagging for traceability and cost allocation 
+ Maintain Azure landing zone frameworks (networking, security, identity, and management layers). 
+ Configure centralized monitoring for all cloud resources (Azure Monitor, Log Analytics, and third-party APM tools, Application Insight). 
+ Oversee automated backup policies using native tools (e.g., Azure Backup, Recovery Services Vaults). 
+ Leverage FinOps practices for budgeting, forecasting, and cost efficiency. 
+ Track subscription and license renewals to prevent service interruptions. 
+ Identify automation and optimization opportunities for orchestration workflows. 
+ Enforce structured governance (branching models, pull request policies, and code reviews). 
+ Plan, test, and apply updates for Azure DevOps extensions, agents, and plugins. 
+
+Job Requirements
+
+ Bachelor's degree in computer science, Information Technology, Engineering, or a related field. 
+ 8+ years of experience in IT, with a minimum of 6 years focused on Azure cloud environments. 
+ Proficient in Azure services (Azure Entra ID (optional), Azure Networking, Azure Storage, Azure Compute, Azure Monitor, etc.). 
+ Proficiency in CI/CD tools, preferably Azure Dev Ops Pipelines. 
+ Experience with infrastructure automation using Terraform/ Bicep. 
+ Experience with scripting languages such as Python, Bash, or PowerShell. 
+ Experience with Linux environment containerization and orchestration technologies (e.g., Docker, Kubernetes). 
+ Proven track record of leading large-scale Azure projects. 
+ Solid understanding of networking, security, and database concepts. 
+ Experience with Azure networking and security, particularly Hub/Spoke topology, AppGW, Firewall, Front Door. 
+ Azure certifications (e.g., Azure Solutions Architect Expert, Azure Administrator Associate) are highly desirable. 
+ Exceptional problem-solving abilities and strong communication skills. 
+ 
+ 
+ 
+Your activities will include: 
+
+Initiate and actively drive the adoption of good patterns, structures and use of technologies for development and operations 
+Investigate and identify practices and work that can benefit from automation 
+Monitor and suggest improvements to the existing CI/CD process to increase speed, safety and reliability 
+Implement and coordinate implementation with the parties involved 
+Develop and maintain existing /GitLab CI pipeline libraries 
+Assist developers with setting up CI/CD for their projects and provide support for any issues that may arise 
+Stay up to date with the latest tools and trends in the industry 
+Provide senior-level, best practice recommendations and implementations to our Windows, Linux and Kubernetes hosting environments 
+Function as a mentor to junior team members, providing technical guidance and recommending continued learning opportunities to help them develop 
+Educate fellow team members as well as Application Development Teams about the platforms used-for and hosted-by our team. Key tools and concepts in this space are: Gitlab, Docker, AWS, Terraform, Istio Service Mesh, Kubernetes , Kafka, ELK 
+Work with our Security team to remediate high-risk vulnerabilities and ensure the security of our environments are being scrutinized as appropriate for their use case 
+Offer services related to the above tasks and projects to any of the Companies of the Group as instructed by the Line Manager 
+
+Requirements
+
+University degree in Computer Science, Engineering, or a similar discipline 
+7+ years' experience within the following areas: Cloud ( AWS), Release Pipeline Management, Windows Server Administration, Linux Administration, Certificate Management, PowerShell scripting, Bash/python scripting, Configuration Management and IAC (Ansible/Terraform), DNS, Networking 
+Enterprise-level Kubernetes experience 
+Solid Linux administration skills 
+Commitment to continuous improvement, with a focus on observability, modern application architecture styles, blue-green / canary deployments, CI/CD pipeline management 
+Ability to self-motivate, study, and stay on-top of emerging technologies and trends, while meeting business deadlines 
+Experience with tools including: Istio, Prometheus, Grafana, ELK, MSK, New Relic 
+
+Bonus Points: What Will Make You Stand Out 
+
+Familiarity with database concepts 
+Working experience with at least one cloud provider (preferably AWS)
+Experience with Apache Kafka configuration and troubleshooting 
+Experience with ELK configuration and troubleshooting
+Scripting skills (Bash, PowerShell, Python, Go, etc.) 
+
+
+What You'll Do
+
+ Build, operate, and improve the infrastructure powering the distributed inference platform
+ Own reliability, scalability, and operational excellence across AWS-based control planes and our multi-provider GPU fleet
+ Design and maintain the networking layer connecting control planes, Kubernetes clusters, and geographically distributed GPU hosts
+ Operate and improve Kubernetes-based inference orchestration, primarily on EKS
+ Manage deployments and infrastructure changes using Helm, FluxCD, and Terraform
+ Improve observability across the platform using metrics, logs, traces, dashboards, and alerting built on Prometheus, Grafana, Loki, Jaeger, and OpenTelemetry
+ Tune alerts, improve runbooks, and strengthen operational readiness as the system scales
+ Respond to production issues, perform root cause analysis, and implement durable fixes
+ Work closely with engineers across time zones using clear asynchronous communication and handoff practices, especially through Slack
+ Help expand Europe-based infrastructure coverage to support sustainable operations outside US business hours
+
+Requirements
+
+ 5+ years of experience in SRE, DevOps, platform engineering, or infrastructure engineering
+ Strong production experience with networking and Kubernetes
+ Experience operating AWS infrastructure in production, especially EKS
+ Strong hands-on experience managing Linux hosts, clusters, and distributed systems in environments that are not fully abstracted by a major cloud provider
+ Experience with Prometheus, Grafana, Loki, Jaeger, and OpenTelemetry
+ Experience with deployment and GitOps workflows using tools such as Helm and FluxCD
+ Experience with infrastructure as code, ideally Terraform
+ Familiarity with alert tuning, runbook development, and practical incident management in production systems
+ Strong operational judgment: able to troubleshoot independently, respond calmly to incidents, and improve systems without constant direction
+ Comfortable working in a fast-moving startup where infrastructure, product, and customer demands are changing quickly
+ Clear communicator who can work effectively in an async environment and handle shift handoffs cleanly
+ 
+ 
+ 
+What You'll Be Doing
+
+Automate infrastructure with Terraform and ARM templates
+Build CI/CD pipelines and automation with PowerShell and YAML
+Manage Azure IaaS & PaaS resources efficiently
+Configure Azure networking: App Gateways, Firewalls, API Management
+Monitor infrastructure using Azure tools and third-party observability platforms
+Implement OAuth2/OpenID Connect with Entra ID
+Govern resources using Azure Policies
+Design geo-redundant, highly available systems
+Apply basic SQL in deployment and support tasks
+Ensure infrastructure security, compliance (e.g., PCI DSS)
+Optimize cloud costs using Azure Cost Management tools
+OnCall availability (if needed)
+Contribute to a collaborative team environment while working independently
+Participate in Agile Scrum teams, continuously improving delivery pipelines
+
+
+What You'll Bring Along
+
+Bachelor’s in Informatics or related field, or equivalent experience
+Minimum 5 years experience in a DevOps role
+Strong with Terraform, PowerShell, YAML
+Deep Azure experience (IaaS/PaaS), networking, and identity management
+Understanding of redundancy, scaling, and policy enforcement
+Basic SQL skills
+Familiarity with CI/CD, Agile, Scrum
+Experience with security best practices and incident response
+Excellent problem-solving, communication, and mentoring skills
+Solid practical experience with Docker and Kubernetes is expected 
+Certifications in Azure or DevOps are valued
+Strong communication skills in English (German is a plus)
+Ability to explain technical solutions in a business context
+
+
+Which challenges you can expect
+
+
+
+Working in a distributed DevOps team across multiple locations using agile practices
+Supporting the design and operation of core infrastructure on GCP for data science and Python-based ML/AI workloads
+Maintaining and improving Kubernetes environments with Helm and ArgoCD
+Developing and reviewing Terraform modules and cloud configurations
+Managing GitLab CI/CD pipelines across applications, infrastructure, and ML projects
+Implementing and optimizing autoscaling strategies for workloads and clusters
+Ensuring robust observability across monitoring, logging, and tracing using Grafana, Prometheus, Loki, and Tempo
+Troubleshooting issues across cloud, container, networking, and application layers
+Enhancing platform reliability, cost efficiency, and developer experience
+Educating developers and data scientists on best practices and relevant parts of the technology stack
+
+
+Expected experience and skills
+
+
+
+Fluent English; German is a plus
+Minimum 4 years of professional experience in DevOps or related roles
+Bachelor’s degree in Computer Science, Information Technology, or a related field
+Strong expertise with at least one major cloud provider (GCP preferred; AWS/Azure acceptable)
+Extensive experience with Docker, Kubernetes, Helm charts, and container-based production systems
+Understanding basic security concepts and helping to identify and mitigate common vulnerabilities
+Solid hands-on proficiency with Terraform and GitOps tools such as ArgoCD
+Strong experience building and maintaining CI/CD pipelines, ideally with GitLab CI
+Proficiency in Unix/Linux administration, shell scripting, and practical networking fundamentals
+Experience with monitoring and observability solutions (Grafana stack; ELK also relevant)
+Familiarity with autoscaling concepts (HPA/VPA, cluster autoscaler)
+Experience with relational and document databases, such as PostgreSQL and MongoDB, is a plus
+Experience with OpenTelemetry instrumentation is a plus
+
+
+What You Bring to the Team:
+
+Architect, improve, and scale Cloudbeds' cloud infrastructure on AWS, with a focus on reliability, security, and performance
+Build and evolve our Kubernetes (EKS) platform, driving adoption of containerization best practices across engineering teams
+Automate infrastructure provisioning and configuration using infrastructure-as-code tools like Terraform
+Design, build, and maintain CI/CD pipelines (GitHub Actions, ArgoCD) that enable fast, reliable software delivery
+Partner with product and engineering teams to drive projects to production, sharing DevOps expertise and ensuring strong environment configuration from the infrastructure side
+Maintain and improve monitoring, logging, and alerting systems to ensure platform health and rapid incident response
+Participate in on-call rotation to support production environment stability.
+
+What Sets You Up for Success:
+
+5+ years of experience as a DevOps Engineer working hands-on with AWS (networking, compute, storage, databases, queues, cache, permissions).
+5+ years of strong Kubernetes and Docker experience, including implementing and scaling EKS platforms at production scale.
+Deep expertise with Terraform for infrastructure-as-code and configuration management.
+Proven experience building and supporting CI/CD pipelines using GitHub Actions and ArgoCD.
+Strong knowledge of monitoring and observability tools such as Datadog, Prometheus, Loki, or AWS CloudWatch.
+Working knowledge of web application servers (NGINX, Ingress controllers), databases (MySQL, PostgreSQL, Aurora), caching (Redis, Memcached), and queue technologies (SQS).
+Ability to write Bash and/or Python scripts to automate operational tasks.
+Strong Linux system administration skills and solid networking fundamentals.
+Excellent written and verbal English communication skills; comfortable working asynchronously across a globally distributed remote team.
+
+
+Key Responsibilities:
+
+Design, implement, and manage Azure infrastructure using IaC tools such as ARM templates or Bicep.
+Architect scalable, secure, and cost-effective solutions on Azure which align with approved architectural standards.
+Collaborate with internal teams and stakeholders to ensure seamless integration and deployment of applications and infrastructure.
+Mentor and guide junior DevOps engineers, fostering a culture of continuous learning and improvement.
+Implement and manage CI/CD pipelines to automate the deployment process.
+Monitor and optimize system performance, ensuring high availability and reliability.
+Troubleshoot and resolve infrastructure and application issues, following ITIL best practices.
+Ensure compliance with security and regulatory requirements.
+Stay up-to-date with the latest industry trends and best practices in DevOps and cloud technologies.
+ 
+Qualifications:
+
+Minimum of 5 years of experience in deploying Azure resources using IaC.
+Proven experience in architecting solutions on Azure.
+Strong understanding of CI/CD pipelines and tools such as Azure DevOps.
+Excellent knowledge of cloud concepts and technologies, utilizing Microsoft Azure. You are familiar with governance, monitoring, IAM, storage and serverless infrastructure, and container concepts.
+Excellent problem-solving skills and the ability to troubleshoot complex issues.
+Strong communication and collaboration skills, with a team-oriented mindset.
+Ability to mentor and guide junior team members.
+Certifications: AZ-900, AZ-104, and AZ-400.
+Experience with containerization technologies such as Docker and Kubernetes is a plus.
+Knowledge of scripting languages such as PowerShell, Python, or Bash.
+Strong leadership, adaptability, and time management skills.
+ 
+Preferred Skills:
+
+Experience with monitoring and logging tools such as Azure Monitor, Log Analytics, or Splunk.
+Familiarity with security best practices and tools for cloud environments.
+Understanding of Agile methodologies and experience working in Agile teams.
+Experience with other cloud platforms (e.g., AWS, Google Cloud) is a plus.
+
+
+Roles and Responsibilities:
+
+Design, implement, and maintain CI/CD pipelines for application deployment
+Automate infrastructure provisioning using tools like Terraform or CloudFormation
+Manage cloud environments (AWS, Azure, or GCP)
+Monitor system performance and troubleshoot issues across environments
+Collaborate with development and QA teams to streamline release cycles
+Ensure security, scalability, and high availability of systems
+Implement logging, monitoring, and alerting solutions
+Manage containerization and orchestration using Docker and Kubernetes
+Maintain version control systems (Git) and branching strategies
+Optimize infrastructure costs and performance

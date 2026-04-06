@@ -1,0 +1,39 @@
+---
+- name: Setup DevOps Learning Environment
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Check if Docker is installed
+      command: docker --version
+      register: docker_check
+      ignore_errors: yes
+
+    - name: Fail if Docker is not installed
+      fail:
+        msg: "Docker is not installed. Please install Docker Desktop for Windows."
+      when: docker_check.rc != 0
+
+    - name: Check if Terraform is installed
+      command: terraform --version
+      register: terraform_check
+      ignore_errors: yes
+
+    - name: Warn if Terraform is not installed
+      debug:
+        msg: "Terraform is not installed. You will need it for the Terraform phase."
+      when: terraform_check.rc != 0
+
+    - name: Check if Kubectl is installed
+      command: kubectl version --client
+      register: kubectl_check
+      ignore_errors: yes
+
+    - name: Warn if Kubectl is not installed
+      debug:
+        msg: "Kubectl is not installed."
+      when: kubectl_check.rc != 0
+
+    - name: Create Kind Cluster (Optional - requires Kind installed)
+      command: kind create cluster --name devops-learning
+      ignore_errors: yes
+      when: lookup('env', 'CREATE_KIND_CLUSTER') == 'true'

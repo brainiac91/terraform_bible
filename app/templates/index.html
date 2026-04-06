@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - The Terraform Bible</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .premium-glow {
+            transition: all 0.4s ease;
+        }
+        
+        .dark .premium-glow:hover {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+            border-color: rgba(168, 85, 247, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .light .premium-glow:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .gradient-animate {
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] dark:from-slate-900 dark:via-slate-950 dark:to-black text-slate-900 dark:text-white min-h-screen transition-colors duration-500">
+
+    <!-- Top Navigation -->
+    <nav class="sticky top-0 z-50 glass border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="flex items-center space-x-3 group cursor-pointer hover:opacity-80 transition">
+                <span class="text-2xl group-hover:scale-110 transition-transform">🚀</span>
+                <h1 class="font-bold text-lg tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-cyan-400">The Terraform Bible</h1>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-4 text-sm font-medium text-slate-600 dark:text-slate-400">
+                    <div class="flex items-center hover:text-yellow-500 transition-colors"><span class="text-yellow-500 mr-1 animate-pulse-slow">✨</span> <span id="nav-xp">0</span> XP</div>
+                    <div class="flex items-center hover:text-orange-500 transition-colors"><span class="text-orange-500 mr-1 animate-bounce" style="animation-duration: 2s;">🔥</span> <span id="nav-streak">1</span> Day Streak</div>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800/50 transition duration-300">
+                    <svg class="w-5 h-5 hidden dark:block text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <svg class="w-5 h-5 block dark:hidden text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 24.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 relative z-10">
+        <!-- Abstract glowing orb behind main content -->
+        <div class="hidden dark:block absolute top-20 left-20 w-72 h-72 bg-purple-600/20 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+        <!-- Welcome Section -->
+        <div class="mb-10">
+            <h2 class="text-3xl font-bold mb-2 tracking-tight">Student Dashboard</h2>
+            <p class="text-slate-500 dark:text-slate-400">Track your progress and master Infrastructure as Code.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  KNOWLEDGE ARENA CTA                    -->
+        <!-- ═══════════════════════════════════════ -->
+        <a href="/arena" id="arena-cta" class="block mb-10 group">
+            <div class="relative overflow-hidden rounded-2xl p-1 bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 gradient-animate shadow-[0_10px_40px_-10px_rgba(147,51,234,0.4)] hover:shadow-[0_15px_50px_-10px_rgba(147,51,234,0.6)] transition-all hover:-translate-y-1">
+                <div class="bg-white dark:bg-slate-950 rounded-[0.9rem] p-6 flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center text-3xl mr-5 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                            🧠
+                        </div>
+                        <div>
+                            <h3 class="font-black text-lg text-slate-900 dark:text-white tracking-tight">Knowledge Arena</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Test yourself across <strong class="text-purple-600 dark:text-purple-400">all chapters</strong> with randomized questions</p>
+                        </div>
+                    </div>
+                    <div class="hidden sm:flex items-center text-purple-600 dark:text-purple-400 font-black uppercase tracking-widest text-xs group-hover:translate-x-1 transition-transform">
+                        Enter <span class="ml-2 text-lg">→</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- Left Column: Progress & Path -->
+            <div class="md:col-span-2 space-y-8">
+
+                <!-- Compact Progress Card -->
+                <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/80 premium-glow flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-400 uppercase tracking-widest mb-2">Platform Matrix</p>
+                        <div class="flex items-baseline space-x-2 relative">
+                            <span id="stat-progress" class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-purple-600 to-pink-500 dark:from-purple-400 dark:to-cyan-400 drop-shadow-sm">0%</span>
+                            <span class="text-sm font-semibold text-slate-400 uppercase tracking-wide">Sync</span>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="w-full bg-slate-100 dark:bg-slate-800/80 rounded-full h-3 overflow-hidden shadow-inner border border-slate-200 dark:border-slate-700/50">
+                            <div id="progress-bar" class="h-3 rounded-full transition-all duration-1000 ease-out relative" style="width: 0%; background: linear-gradient(90deg, #9333ea, #3b82f6);">
+                                <div class="absolute inset-0 bg-white/20 w-full h-full animate-[pulse_2s_ease-in-out_infinite]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning Path List -->
+                <div>
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-5 flex items-center text-lg">
+                        <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-1.5 rounded-lg mr-3 shadow-lg shadow-purple-500/20">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        </div>
+                        Curriculum
+                    </h3>
+                    <div class="space-y-3" id="chapter-list">
+                        <!-- Chapters injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Up Next & Insights -->
+            <div class="space-y-6 relative">
+                <!-- Abstract glowing orb behind sidebar -->
+                <div class="hidden dark:block absolute top-40 right-10 w-40 h-40 bg-pink-600/10 rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+
+                <!-- Up Next Card -->
+                <div class="relative overflow-hidden premium-glow bg-slate-900 rounded-2xl shadow-[0_10px_40px_-15px_rgba(147,51,234,0.5)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-700/90 via-indigo-800/90 to-blue-900/90 z-0"></div>
+                    <!-- Animated overlay line -->
+                    <div class="absolute h-1 w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent top-0 animate-[pulse_3s_ease-in-out_infinite] z-10"></div>
+                    
+                    <div class="p-6 relative z-10 text-white">
+                        <p class="text-purple-200 text-xs font-bold uppercase tracking-widest mb-3 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></span> Active Directive
+                        </p>
+                        <h3 class="text-2xl font-bold mb-6 leading-tight drop-shadow-md text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-100" id="next-lesson-title">Loading...</h3>
+                        <a href="#" id="next-lesson-link" class="block w-full text-center bg-white/10 hover:bg-white text-white hover:text-indigo-900 backdrop-blur-sm border border-white/20 font-bold py-3 rounded-xl text-sm transition-all duration-300 shadow-sm uppercase tracking-wider">
+                            Initialize ⚡
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Stats (Mobile only) -->
+                <div class="md:hidden grid grid-cols-2 gap-4">
+                    <div class="bg-white dark:bg-slate-900/80 backdrop-blur border border-slate-200 dark:border-slate-800 p-4 rounded-xl text-center premium-glow">
+                        <span class="text-2xl block mb-1">✨</span>
+                        <span class="font-bold block" id="mobile-xp">0</span>
+                        <span class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Total XP</span>
+                    </div>
+                    <div class="bg-white dark:bg-slate-900/80 backdrop-blur border border-slate-200 dark:border-slate-800 p-4 rounded-xl text-center premium-glow">
+                        <span class="text-2xl block mb-1">🔥</span>
+                        <span class="font-bold block" id="mobile-streak">0</span>
+                        <span class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Day Streak</span>
+                    </div>
+                </div>
+
+                <!-- AI Insight -->
+                <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur border border-slate-200/50 dark:border-slate-800/80 rounded-2xl p-6 premium-glow cursor-default relative overflow-hidden">
+                    <div class="absolute -right-6 -top-6 text-6xl opacity-5 dark:opacity-10 grayscale">🤖</div>
+                    <div class="flex items-center mb-4 relative z-10">
+                        <div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center mr-3 border border-slate-200 dark:border-slate-700">
+                            <span class="text-sm">🤖</span>
+                        </div>
+                        <h3 class="font-bold text-sm tracking-wide uppercase text-slate-700 dark:text-slate-300">AI Insight</h3>
+                    </div>
+                    <div id="insight-content" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 font-medium">
+                        Complete more modules to generate personalized telemetry insights.
+                    </div>
+                </div>
+
+                <!-- Badges -->
+                <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur border border-slate-200/50 dark:border-slate-800/80 rounded-2xl p-6 premium-glow">
+                    <h3 class="font-bold text-sm tracking-wide uppercase text-slate-700 dark:text-slate-300 mb-4">Achievements</h3>
+                    <div class="flex flex-wrap gap-3" id="badges-container">
+                        <span class="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 py-1 px-3 rounded-full border border-slate-200 dark:border-slate-700">Awaiting clearance...</span>
+                    </div>
+                </div>
+
+                <!-- Tools Mini-List -->
+                <div class="bg-white/80 dark:bg-slate-900/60 backdrop-blur border border-slate-200/50 dark:border-slate-800/80 rounded-2xl p-6 premium-glow group">
+                    <h3 class="font-bold text-sm tracking-wide uppercase text-slate-700 dark:text-slate-300 mb-4">Developer Tools</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="/arena" class="flex items-center p-2 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-purple-600 dark:hover:text-purple-400 transition-all border border-transparent dark:hover:border-slate-700">
+                                <span class="w-8 h-8 flex items-center justify-center bg-gradient-to-br from-purple-500 to-cyan-500 text-white rounded shadow-sm mr-3">🧠</span>
+                                Knowledge Arena
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/god_mode" class="flex items-center p-2 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-purple-600 dark:hover:text-purple-400 transition-all border border-transparent dark:hover:border-slate-700">
+                                <span class="w-8 h-8 flex items-center justify-center bg-gradient-to-br from-red-500 to-orange-500 text-white rounded shadow-sm mr-3">⚡</span>
+                                God Mode Terminal
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/api/terraform/state" class="flex items-center p-2 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all border border-transparent dark:hover:border-slate-700">
+                                <span class="w-8 h-8 flex items-center justify-center bg-slate-200 dark:bg-slate-800 dark:border dark:border-slate-700 rounded shadow-sm mr-3">🔍</span>
+                                State Visualizer
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script id="chapters-data" type="application/json">
+        {{ chapters | tojson }}
+    </script>
+
+    <script>
+        const chapters = JSON.parse(document.getElementById('chapters-data').textContent);
+        const userState = JSON.parse(localStorage.getItem('tf_bible_user')) || {
+            xp: 0,
+            streak: 1,
+            lastLogin: '',
+            chapterProgress: {}
+        };
+
+        // Fix for undefined
+        if (typeof userState.streak === 'undefined') userState.streak = 1;
+
+        // Streak Logic
+        const today = new Date().toDateString();
+        if (userState.lastLogin !== today) {
+            if (userState.lastLogin) {
+                const last = new Date(userState.lastLogin);
+                const diff = (new Date() - last) / (1000 * 60 * 60 * 24);
+                if (diff <= 2) userState.streak++;
+                else userState.streak = 1;
+            } else {
+                userState.streak = 1;
+            }
+            userState.lastLogin = today;
+            localStorage.setItem('tf_bible_user', JSON.stringify(userState));
+        }
+
+        // Initialize state
+        if (Object.keys(userState.chapterProgress).length === 0) {
+            if (chapters.length > 0) {
+                userState.chapterProgress[chapters[0].id] = { status: 'unlocked', score: 0 };
+            }
+        }
+        localStorage.setItem('tf_bible_user', JSON.stringify(userState));
+
+        function render() {
+            const totalChapters = chapters.length;
+            const completed = Object.values(userState.chapterProgress).filter(c => c.status === 'completed').length;
+            const percent = totalChapters > 0 ? Math.round((completed / totalChapters) * 100) : 0;
+
+            document.getElementById('stat-progress').innerText = percent + '%';
+            document.getElementById('progress-bar').style.width = percent + '%';
+            document.getElementById('nav-xp').innerText = userState.xp;
+            document.getElementById('nav-streak').innerText = userState.streak;
+            if (document.getElementById('mobile-xp')) document.getElementById('mobile-xp').innerText = userState.xp;
+            if (document.getElementById('mobile-streak')) document.getElementById('mobile-streak').innerText = userState.streak;
+
+            // Badges
+            const badgesContainer = document.getElementById('badges-container');
+            let badgesHtml = '';
+            if (userState.xp > 100) badgesHtml += '<div title="Operative" class="w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-full text-lg cursor-help hover:scale-110 transition">🥉</div>';
+            if (userState.xp > 500) badgesHtml += '<div title="Architect" class="w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-full text-lg cursor-help hover:scale-110 transition">🥈</div>';
+            if (percent === 100) badgesHtml += '<div title="Terraform God" class="w-10 h-10 flex items-center justify-center bg-yellow-100 dark:bg-yellow-900 border border-yellow-400 rounded-full text-lg cursor-help shadow-[0_0_15px_rgba(234,179,8,0.5)] hover:scale-110 transition">👑</div>';
+            if (userState.streak > 3) badgesHtml += '<div title="Consistent Execution" class="w-10 h-10 flex items-center justify-center bg-orange-100 dark:bg-orange-900 border border-orange-400 rounded-full text-lg cursor-help hover:scale-110 transition">🔥</div>';
+            
+            if(badgesHtml !== '') badgesContainer.innerHTML = badgesHtml;
+
+            // Chapters List
+            const container = document.getElementById('chapter-list');
+            container.innerHTML = '';
+            let firstUnlocked = null;
+
+            chapters.forEach((ch, index) => {
+                const progress = userState.chapterProgress[ch.id] || { status: 'locked', score: 0 };
+                const isLocked = progress.status === 'locked';
+                const isCompleted = progress.status === 'completed';
+
+                if (!isLocked && !firstUnlocked && !isCompleted) firstUnlocked = ch;
+
+                const el = document.createElement('div');
+                el.className = `group flex items-center p-3.5 rounded-xl border backdrop-blur-sm transition-all duration-300 ${isLocked
+                    ? 'bg-transparent border-transparent opacity-50'
+                    : 'bg-white/50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700/50 hover:-translate-y-0.5 hover:shadow-lg hover:border-purple-300/50 dark:hover:border-purple-500/50 cursor-pointer premium-glow'
+                    }`;
+
+                if (!isLocked) el.onclick = () => window.location.href = `/bible/${ch.id}`;
+
+                let statusIcon = '<div class="w-10 h-10 rounded-full bg-slate-200/50 dark:bg-slate-800 flex items-center justify-center text-xs text-slate-400 border border-slate-300 dark:border-slate-700">🔒</div>';
+                if (isCompleted) statusIcon = '<div class="w-10 h-10 rounded-full bg-green-100/80 dark:bg-green-900/30 flex items-center justify-center text-sm text-green-600 border border-green-200 dark:border-green-800 shadow-[0_0_10px_rgba(34,197,94,0.2)]">✓</div>';
+                else if (!isLocked) statusIcon = '<div class="w-10 h-10 rounded-full bg-purple-100/80 dark:bg-purple-900/40 flex items-center justify-center text-sm text-purple-600 border border-purple-200 dark:border-purple-700 shadow-[0_0_10px_rgba(168,85,247,0.3)]">⚡</div>';
+
+                el.innerHTML = `
+                    <div class="mr-4">${statusIcon}</div>
+                    <div class="flex-grow min-w-0">
+                        <div class="flex justify-between items-center mb-1">
+                            <h3 class="font-bold text-[15px] truncate ${isLocked ? 'text-slate-500' : 'text-slate-800 dark:text-slate-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors'}">
+                                ${ch.title}
+                            </h3>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Module ${index + 1}</span>
+                            ${!isLocked && progress.score > 0 ? `<div class="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-600"></div><span class="text-[10px] font-bold tracking-wider ${progress.score >= 80 ? 'text-green-500' : 'text-orange-400'}">MASTERY: ${progress.score}%</span>` : ''}
+                        </div>
+                    </div>
+                    ${!isLocked ? '<div class="text-slate-300 dark:text-slate-600 group-hover:text-purple-500 group-hover:translate-x-1 transition-transform ml-2">➜</div>' : ''}
+                `;
+                container.appendChild(el);
+            });
+
+            // Up Next
+            const next = firstUnlocked || chapters[0];
+            if (next) {
+                document.getElementById('next-lesson-title').innerText = next.title;
+                document.getElementById('next-lesson-link').href = `/bible/${next.id}`;
+            } else {
+                document.getElementById('next-lesson-title').innerText = "All Modules Cleared";
+                document.getElementById('next-lesson-link').innerText = "Review Directives ↺";
+                document.getElementById('next-lesson-link').href = `/bible/${chapters[0].id}`;
+            }
+            renderInsights();
+        }
+
+        function renderInsights() {
+            let lowest = null;
+            let minScore = 101;
+            chapters.forEach(ch => {
+                const p = userState.chapterProgress[ch.id];
+                if (p && p.status !== 'locked' && p.score > 0 && p.score < minScore) {
+                    minScore = p.score;
+                    lowest = ch;
+                }
+            });
+
+            const container = document.getElementById('insight-content');
+            if (lowest && minScore < 70) {
+                container.innerHTML = `
+                    <p class="font-bold text-slate-800 dark:text-slate-200 mb-2">⚠️ Suboptimal Pattern Detected</p>
+                    <p class="mb-3 text-[13px] leading-relaxed">Your validation score for <strong class="text-orange-500">${lowest.title}</strong> is at ${minScore}%. Restructure required.</p>
+                    <a href="/bible/${lowest.id}" class="inline-block border border-purple-200 dark:border-purple-800 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-lg text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 text-xs font-bold uppercase tracking-wider transition">Re-initialize</a>
+                `;
+            } else if (userState.xp > 500) {
+                container.innerHTML = `
+                    <p class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500 dark:from-green-400 dark:to-emerald-300 mb-1">🟢 Trajectory Nominal</p>
+                    <p class="text-[13px]">Platform drift is 0. Your state matches the desired configuration perfectly.</p>
+                `;
+            }
+        }
+
+        render();
+
+        const html = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        toggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+    </script>
+</body>
+</html>

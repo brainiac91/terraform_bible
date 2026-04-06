@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God Mode - The Terraform Bible</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050510;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .terminal-cursor::after {
+            content: '█';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Scanline effect for ultimate 2026 CRT terminal vibe */
+        .scanlines {
+            position: relative;
+        }
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Grid Background overlay */
+        .cyber-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Animated Glow Border */
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            z-index: -1;
+            background: linear-gradient(90deg, #ef4444, #f97316, #eab308, #ef4444);
+            background-size: 400% 400%;
+            animation: gradientMove 5s ease infinite;
+            border-radius: inherit;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        textarea:focus { outline: none; }
+    </style>
+</head>
+
+<body class="text-slate-200 min-h-screen flex flex-col cyber-grid relative overflow-x-hidden">
+    <!-- Abstract ambient glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-red-600/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+    <!-- Header -->
+    <header class="border-b border-white/5 bg-black/40 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl animate-pulse">⚡</span>
+                <h1 class="font-bold text-xl tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">God Mode Terminal</h1>
+            </div>
+            <a href="/" class="flex items-center text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-white transition group border border-white/10 px-4 py-2 rounded-lg hover:border-white/30 hover:bg-white/5">
+                <span class="mr-2 group-hover:-translate-x-1 transition-transform">←</span> Abort Mission
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Interface -->
+    <main class="flex-grow p-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+
+        <!-- Challenge Panel -->
+        <div class="lg:col-span-5 flex flex-col space-y-6">
+            <div class="bg-black/60 backdrop-blur border border-white/5 p-8 rounded-2xl shadow-2xl relative overflow-hidden">
+                <!-- Decorative Top Left Corner -->
+                <div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-red-500/50 rounded-tl-2xl opacity-50"></div>
+                
+                <div class="inline-block px-3 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-black uppercase tracking-widest mb-6 animate-pulse">
+                    Critical Incident Active
+                </div>
+                <h2 class="text-3xl font-black text-white mb-3 tracking-tight" id="challenge-title">Awaiting Telemetry...</h2>
+                <p class="text-slate-400 text-sm leading-relaxed" id="challenge-desc">Establishing secure uplink to incident report...</p>
+            </div>
+
+            <div class="bg-black/40 backdrop-blur border border-white/5 rounded-2xl p-6 flex-grow flex flex-col">
+                <h3 class="text-xs font-black text-slate-500 mb-4 uppercase tracking-widest flex items-center">
+                    <span class="w-1 h-3 bg-cyan-500 mr-2 rounded-full"></span> Mission Parameters
+                </h3>
+                <ul class="space-y-4 text-sm text-slate-300 flex-grow" id="objectives-list">
+                    <!-- Injected via JS -->
+                </ul>
+
+                <div class="flex space-x-4 mt-8">
+                    <button onclick="checkSolution()" class="flex-1 bg-gradient-to-br from-green-600 to-emerald-800 hover:from-green-500 hover:to-emerald-700 text-white font-bold py-4 rounded-xl transition duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] border border-green-500/50 uppercase tracking-widest text-sm relative overflow-hidden group">
+                        <span class="absolute inset-0 w-full h-full bg-white/20 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></span>
+                        <span class="relative">Execute Patch</span>
+                    </button>
+                    <button onclick="nextChallenge()" class="px-6 bg-slate-800/80 hover:bg-slate-700 text-white font-bold rounded-xl transition border border-white/10 uppercase tracking-widest text-xs">
+                        Skip
+                    </button>
+                </div>
+
+                <div id="feedback-area" class="hidden mt-6 p-4 border rounded-xl text-xs font-mono uppercase tracking-wider"></div>
+            </div>
+        </div>
+
+        <!-- Terminal / Code Editor -->
+        <div class="lg:col-span-7 rounded-2xl overflow-hidden flex flex-col shadow-2xl relative glow-border p-[1px] bg-black/40 backdrop-blur-lg">
+            <div class="h-full w-full bg-[#0a0a0f] rounded-2xl flex flex-col overflow-hidden scanlines">
+                <!-- Mac-like Window Header -->
+                <div class="bg-black/80 px-4 py-3 border-b border-white/5 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.6)]"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_5px_rgba(234,179,8,0.6)]"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80 shadow-[0_0_5px_rgba(34,197,94,0.6)]"></div>
+                    </div>
+                    <span class="text-xs text-slate-500 font-mono tracking-widest">root@tf-bible:~/infra</span>
+                    <div class="w-16"></div> <!-- Spacer -->
+                </div>
+                
+                <div class="flex-grow p-6 font-mono text-[14px] text-cyan-300 relative leading-relaxed">
+                    <textarea id="code-editor" class="w-full h-full bg-transparent focus:outline-none resize-none font-mono selection:bg-cyan-900/50" spellcheck="false"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Exact same logic, decoupled from UI
+        const challenges = [
+            {
+                id: 1,
+                title: "The Public Bucket",
+                desc: "A junior dev accidentally committed code that makes our customer data bucket public. Fix it immediately before the security bot flags it.",
+                code: `resource "aws_s3_bucket" "customer_data" {
+  bucket = "acme-customer-data"
+  acl    = "public-read" # <--- DANGER
+  
+  tags = {
+    Environment = "Production"
+  }
+}`,
+                objectives: ["Change ACL to 'private'", "Ensure tags remain"],
+                validator: (code) => code.includes('acl') && (code.includes('"private"') || code.includes("'private'")) && !code.includes('public-read')
+            },
+            {
+                id: 2,
+                title: "Hardcoded Secrets",
+                desc: "We found a database password hardcoded in the main configuration. Replace it with a variable reference.",
+                code: `resource "aws_db_instance" "default" {
+  allocated_storage = 10
+  engine            = "mysql"
+  username          = "admin"
+  password          = "SuperSecret123!" # <--- FIX THIS
+}`,
+                objectives: ["Remove the hardcoded string", "Use 'var.db_password'"],
+                validator: (code) => !code.includes('SuperSecret123!') && code.includes('var.db_password')
+            },
+            {
+                id: 3,
+                title: "Zero-Trust Bypass",
+                desc: "Network Policy Violation. Port 22 is open to the public internet (0.0.0.0/0). Restrict to VPN IP (10.0.0.0/8).",
+                code: `resource "aws_security_group" "allow_ssh" {
+  name        = "allow_ssh"
+  description = "Allow SSH inbound traffic"
+
+  ingress {
+    description = "SSH from VPC"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # <--- DANGER
+  }
+}`,
+                objectives: ["Change cidr_blocks to '10.0.0.0/8'"],
+                validator: (code) => code.includes('10.0.0.0/8') && !code.includes('0.0.0.0/0')
+            }
+        ];
+
+        let currentIdx = 0;
+
+        function loadChallenge(idx) {
+            const ch = challenges[idx];
+            document.getElementById('challenge-title').innerText = ch.title;
+            document.getElementById('challenge-desc').innerText = ch.desc;
+            document.getElementById('code-editor').value = ch.code;
+
+            const list = document.getElementById('objectives-list');
+            list.innerHTML = ch.objectives.map(o => `<li class="flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 shadow-[0_0_5px_cyan]"></span>${o}</li>`).join('');
+
+            document.getElementById('feedback-area').className = 'hidden';
+        }
+
+        function checkSolution() {
+            const code = document.getElementById('code-editor').value;
+            const ch = challenges[currentIdx];
+            const feedback = document.getElementById('feedback-area');
+
+            if (ch.validator(code)) {
+                feedback.innerText = "[SYS] PATCH INTEGRATED SUCCESSFULLY. SIGNATURE VERIFIED.";
+                feedback.className = "block mt-6 p-4 border rounded-xl text-xs font-mono uppercase tracking-wider bg-green-950/40 text-green-400 border-green-500/50 shadow-[0_0_15px_rgba(34,197,94,0.2)]";
+
+                let userState = JSON.parse(localStorage.getItem('tf_bible_user')) || { xp: 0 };
+                userState.xp += 100;
+                localStorage.setItem('tf_bible_user', JSON.stringify(userState));
+
+                setTimeout(() => {
+                    if (currentIdx < challenges.length - 1) {
+                        currentIdx++;
+                        loadChallenge(currentIdx);
+                    } else {
+                        alert("ALL ANOMALIES RESOLVED. TERMINAL UNLOCKED.");
+                        window.location.href = "/";
+                    }
+                }, 1500);
+            } else {
+                feedback.innerText = "[ERROR] VALIDATION FAILED. ANOMALY STILL DETECTED IN INFRASTRUCTURE STATE.";
+                feedback.className = "block mt-6 p-4 border rounded-xl text-xs font-mono uppercase tracking-wider bg-red-950/40 text-red-500 border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.2)]";
+            }
+        }
+
+        function nextChallenge() {
+            if (currentIdx < challenges.length - 1) {
+                currentIdx++;
+                loadChallenge(currentIdx);
+            }
+        }
+
+        loadChallenge(0);
+    </script>
+</body>
+</html>
